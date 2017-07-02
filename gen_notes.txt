@@ -1,0 +1,36 @@
+word-break:break-all;
+display:flex;
+
+color:white !important
+
+**Pro Tip
+#header .brand-name
+
+comment owner of code in project
+title="home"
+
+Refer Websites 
+	stripe.com
+	strava.com //fitness
+use float only to wrap text around image
+
+Descendant selector
+
+ul .glyphicon // goes as many levels as it wants
+
+Child selector
+ul > .glyphicon //Only one level
+
+font-awesome
+
+overflow: auto;//when height to zyada content hoje
+#main::-webkit-scrollbar {
+    display: none;
+}	
+
+git
+	version control system //for viva
+
+<audio src="" controls> ke sath controls lgana zruri nhi to hidden hota
+
+<audio autoplay> //for autoplay

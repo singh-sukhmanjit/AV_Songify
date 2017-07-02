@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Song App</title>
+    <link rel="stylesheet" type="text/css" href="font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <section class="welcome-screen hidden">
+            <h1> Welcome to Songify </h1>
+            <h3> Enter name to access your account </h3>
+            <div class="input-wrapper">
+                <input type="text" placeholder="Name" id="name-input">
+                <button> Go </button>
+            </div>
+        </section>
+        <div class="main">
+            <header>
+                <div class="right floated user-name"> </div>
+            </header>
+            <section class="content">
+                <audio src="fix_you.mp3"></audio>
+                <div class="list-headers">
+        <div> Title </div> 
+        <div> Artist </div>
+        <div> Album </div>
+        <div> Duration </div>
+        </div>
+        <div class="song-list">
+        <div class="song">
+        <span class="song-name"></span>
+        <span class="song-artist"></span>
+        <span class="song-album"></span>
+        <span class="song-length"></span>
+        </div>
+        </div>
+            </section>
+            <footer>
+                <div class="controls">
+                    <div class="player-buttons">
+                        <i class="fa fa-play clickable play-icon" aria-hidden="true"></i>
+                    </div>
+                    <div class="progress-wrapper">
+                        <span class="time-elapsed"> </span>
+                        <div class="player-progress">
+                            <div class="progress-filled"> </div>
+                        </div>
+                        <span class="song-duration"></span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="jquery-3.2.1.js">
+    </script>
+    <script>
+
+    function toggleSong(){
+        var song = document.querySelector('audio');
+        if (song.paused == true) {
+            $('.play-icon').removeClass('fa-play').addClass('fa-pause');
+            song.play();
+        } 
+        else {
+            $('.play-icon'  ).removeClass('fa-pause').addClass('fa-play');
+            song.pause();
+        }
+    };
+
+    function fancyTimeFormat(time)
+        {   
+            // Hours, minutes and seconds
+            var hrs = ~~(time / 3600);
+            var mins = ~~((time % 3600) / 60);
+            var secs = time % 60;
+
+            // Output like "1:01" or "4:03:59" or "123:03:59"
+            var ret = "";
+
+            if (hrs > 0) {
+                ret += "" + hrs + ":" + (mins < 10 ? "0" : "");
+            }
+
+            ret += "" + mins + ":" + (secs < 10 ? "0" : "");
+            ret += "" + secs;
+            return ret;
+        }
+
+    function updateCurrTime(){
+        var song=document.querySelector('audio');
+        var currTime=Math.floor(song.currentTime);
+        var dur=Math.floor(song.duration);
+        var widths; //Progress Bar ki css property set krri hai
+        widths=currTime/dur*100;
+        $('.progress-filled').css("width", widths+'%');
+        currTime=fancyTimeFormat(currTime);
+        dur=fancyTimeFormat(dur);
+        $('.progress-wrapper .time-elapsed').text(currTime);
+        $('.progress-wrapper .song-duration').text(dur);
+
+        
+    }
+
+    var songName="Fix You";
+
+    window.onload= function(){ 
+        $('.song-name').text(songName);
+        setInterval(function(){
+            updateCurrTime();
+        },1000);
+        
+    }
+    $('.welcome-screen button').on('click', function() {
+        var name = $('#name-input').val();
+        if (name.length > 2) {
+            var message = "Welcome, " + name;
+            $('.main .user-name').text(message);
+            $('.welcome-screen').addClass('hidden');
+            $('.main').removeClass('hidden');
+        } else {
+            $('#name-input').addClass('error');
+        }
+    });
+    $('.play-icon').on('click', function() {
+        toggleSong()    
+        });
+
+    $('body').on('keypress', function(event) {
+                if (event.keyCode == 32) {
+                    toggleSong() 
+                    }
+                
+            });
+    </script>
+</body>
+
+</html>

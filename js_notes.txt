@@ -1,0 +1,23 @@
+developer tools vch console vch JavaScript likh skde
+
+alert and confirm are not used....they stop loading of page
+
+document.querySelector('audio')
+.val() for text written in input
+	
+$ signify jquery
+
+$('selector')on('event', function(){
+
+		};
+window.onload= function(){
+};
+setTimeout()	for delay
+setInterval()	for repetation after timeinterval
+"1"+2=12
+keycode.info
+
+math.floor()//prev integer	eg 4.5 = 4
+math.ceil()next integer		eg 4.1= 5
+~~used for math.floor()
+search() to find text in string
