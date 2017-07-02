@@ -164,3 +164,13 @@ h1 {
 .song-length {
     text-align: right;
 }
+
+.song-list span{
+    display: inline-block;
+    width: 150px;
+}
+
+.song-list span:first-child{
+    display: inline-block;
+    width: 330px;
+}
