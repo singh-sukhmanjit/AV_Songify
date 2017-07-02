@@ -58,26 +58,47 @@ function toggleSong(){
         });
     }
 
-    var songList=['Coldplay- Fix You', 'Coldplay- For You', 'Coldplay- Sky Full Of Stars', 'Coldplay- Yellow'];
-    var artistList=['Coldplay', 'Coldplay', 'Coldplay', 'Coldplay'];
-    var albumList=['Coldplay', 'Coldplay', 'Coldplay', 'Coldplay'];
-    var lengthList=['4:07', '5:43', '4:34', '4:30'];
-
-    var fileName=['songs/fix_you.mp3', 'songs/for_you.mp3', 'songs/sky_full_of_stars.mp3', 'songs/yellow.mp3'];
-
-    for(var i=0; i<fileName.length; i++){   //all songs pe click event lgega 
-        playList(fileName[i],i+1);      
+    var songs=[{
+        'name': 'Coldplay- Fix You',
+        'artist': 'Coldplay',
+        'album': 'Coldplay',
+        'duration': '4:07',
+        'fileName': 'songs/fix_you.mp3'
+    },
+    {
+        'name': 'Coldplay- For You',
+        'artist': 'Coldplay',
+        'album': 'Coldplay',
+        'duration': '5:43',
+        'fileName': 'songs/for_you.mp3'
+    },
+    {
+        'name': 'Coldplay- Sky Full Of Stars',
+        'artist': 'Coldplay',
+        'album': 'Coldplay',
+        'duration': '4:34',
+        'fileName': 'songs/sky_full_of_stars.mp3'
+    },
+    {
+        'name': 'Coldplay- Yellow',
+        'artist': 'Coldplay',
+        'album': 'Coldplay',
+        'duration': '4:30',
+        'fileName': 'songs/yellow.mp3'
     }
-    
+    ]
+
+      
     
     window.onload= function(){ 
-        for(var i=0; i<songList.length; i++){
+        for(var i=0; i<songs.length; i++){
             //var name= '#song'+(i+1);
             var song= $('#song'+(i+1)); //select each song id
-            song.find('.song-name').text(songList[i]);  //look for .song-name inside each song selector
-            song.find('.song-artist').text(artistList[i]);
-            song.find('.song-album').text(albumList[i]);
-            song.find('.song-length').text(lengthList[i]);
+            song.find('.song-name').text(songs[i].name);  //look for .song-name inside each song selector
+            song.find('.song-artist').text(songs[i].artist);
+            song.find('.song-album').text(songs[i].album);
+            song.find('.song-length').text(songs[i].duration);
+            playList(songs[i].fileName,i+1);
         }
         setInterval(function(){
             updateCurrTime();
