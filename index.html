@@ -23,7 +23,7 @@
                 <div class="right floated user-name"> </div>
             </header>
             <section class="content">
-                <audio src="fix_you.mp3"></audio>
+                <audio></audio>
                 <div class="list-headers">
         <div> Title </div> 
         <div> Artist </div>
@@ -32,11 +32,40 @@
         </div>
         <div class="song-list">
         <div class="song">
-        <span class="song-name"></span>
-        <span class="song-artist"></span>
-        <span class="song-album"></span>
-        <span class="song-length"></span>
+            <div id="song1">
+                <span class="song-name"></span>
+                <span class="song-artist"></span>
+                <span class="song-album"></span>
+                <span class="song-length"></span>
+            </div>
         </div>
+        
+        <div class="song">
+            <div id="song2">
+                <span class="song-name"></span>
+                <span class="song-artist"></span>
+                <span class="song-album"></span>
+                <span class="song-length"></span>
+            </div>
+        </div>
+        <div class="song">
+            <div id="song3">
+                <span class="song-name"></span>
+                <span class="song-artist"></span>
+                <span class="song-album"></span>
+                <span class="song-length"></span>
+            </div>
+        </div>
+
+        <div class="song">
+            <div id="song4">
+                <span class="song-name"></span>
+                <span class="song-artist"></span>
+                <span class="song-album"></span>
+                <span class="song-length"></span>
+            </div>
+        </div>
+
         </div>
             </section>
             <footer>
@@ -59,6 +88,8 @@
     </script>
     <script>
 
+    
+    
     function toggleSong(){
         var song = document.querySelector('audio');
         if (song.paused == true) {
@@ -105,10 +136,63 @@
         
     }
 
-    var songName="Fix You";
+    var songList=['Coldplay- Fix You', 'Coldplay- For You', 'Coldplay- Sky Full Of Stars', 'Coldplay- Yellow'];
+
+    var fileName=['songs/fix_you.mp3', 'songs/for_you.mp3', 'songs/sky_full_of_stars.mp3', 'songs/yellow.mp3'];
+
+    $('#song1').click(function(){
+        var audio=document.querySelector('audio');
+        
+        if(audio.src.search(fileName[0])>=0){   //audio source alag hai or use != -1
+            toggleSong();
+        }
+        else{
+            audio.src=fileName[0];
+            toggleSong();
+        }
+    });
+
+    $('#song2').click(function(){
+        var audio=document.querySelector('audio');
+        
+        if(audio.src.search(fileName[1])>=0){   //audio source alag hai or use != -1
+            toggleSong();
+        }
+        else{
+            audio.src=fileName[1];
+            toggleSong();
+        }
+    });
+
+    $('#song3').click(function(){
+        var audio=document.querySelector('audio');
+        
+        if(audio.src.search(fileName[2])>=0){   //audio source alag hai or use != -1
+            toggleSong();
+        }
+        else{
+            audio.src=fileName[2];
+            toggleSong();
+        }
+    });
+
+    $('#song4').click(function(){
+        var audio=document.querySelector('audio');
+        
+        if(audio.src.search(fileName[3])>=0){   //audio source alag hai or use != -1
+            toggleSong();
+        }
+        else{
+            audio.src=fileName[3];
+            toggleSong();
+        }
+    });
 
     window.onload= function(){ 
-        $('.song-name').text(songName);
+        $('#song1 .song-name').text(songList[0]);
+        $('#song2 .song-name').text(songList[1]);
+        $('#song3 .song-name').text(songList[2]);
+        $('#song4 .song-name').text(songList[3]);
         setInterval(function(){
             updateCurrTime();
         },1000);
