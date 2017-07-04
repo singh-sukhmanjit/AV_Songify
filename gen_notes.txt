@@ -34,3 +34,10 @@ git
 <audio src="" controls> ke sath controls lgana zruri nhi to hidden hota
 
 <audio autoplay> //for autoplay
+
+background-color: initial	// isto pehla jo  background c ohi lgana hai
+
+1rem= font size of body 
+body{
+font-size: 16px;}
+then 2rem= 32px;

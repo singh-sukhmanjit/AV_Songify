@@ -21,3 +21,19 @@ math.floor()//prev integer	eg 4.5 = 4
 math.ceil()next integer		eg 4.1= 5
 ~~used for math.floor()
 search() to find text in string
+
+array 
+var obj1={.....}
+var obj2= {.....}
+
+var arry=[obj1, obj2]
+
+or 
+var array=[{.....}, {......}]
+
+!= or !== weak equality vs strong equality
+window.onLoad is used for javascript
+$(document).ready(function(){
+....})	is used for  jquery
+
+#(selector).toggleClass('className')	add/remove class

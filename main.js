@@ -44,16 +44,17 @@ function toggleSong(){
         
     }
 
-    function playList(songName, number){
+    function addSongNameClickEvent(songObj, number){
             $('#song'+number).click(function(){
             var audio=document.querySelector('audio');
             
-            if(audio.src.search(songName)>=0){   //audio source alag hai or use != -1
+            if(audio.src.search(songObj.fileName)>=0){   //audio source alag hai or use != -1
                 toggleSong();
             }
             else{
-                audio.src=songName;
+                audio.src=songObj.fileName;
                 toggleSong();
+                currentSongDetails(songObj);
             }
         });
     }
@@ -63,34 +64,52 @@ function toggleSong(){
         'artist': 'Coldplay',
         'album': 'Coldplay',
         'duration': '4:07',
-        'fileName': 'songs/fix_you.mp3'
+        'fileName': 'songs/fix_you.mp3',
+        'albumArt': 'img/coldplay.jpg'
     },
     {
         'name': 'Coldplay- For You',
         'artist': 'Coldplay',
         'album': 'Coldplay',
         'duration': '5:43',
-        'fileName': 'songs/for_you.mp3'
+        'fileName': 'songs/for_you.mp3',
+        'albumArt': 'img/coldplay.jpg'
     },
     {
         'name': 'Coldplay- Sky Full Of Stars',
         'artist': 'Coldplay',
         'album': 'Coldplay',
         'duration': '4:34',
-        'fileName': 'songs/sky_full_of_stars.mp3'
+        'fileName': 'songs/sky_full_of_stars.mp3',
+        'albumArt': 'img/coldplay.jpg'
     },
     {
         'name': 'Coldplay- Yellow',
         'artist': 'Coldplay',
         'album': 'Coldplay',
         'duration': '4:30',
-        'fileName': 'songs/yellow.mp3'
+        'fileName': 'songs/yellow.mp3',
+        'albumArt': 'img/coldplay.jpg'
     }
     ]
 
+    function currentSongDetails(songObj){   //to display current song info
+        //attribute of song change krne ke liye
+        $('.current-song-image').attr('src', songObj.albumArt); 
+        $('.current-song-name').text(songObj.name);
+        $('.current-song-album').text(songObj.album)
+    }
+
       
-    
+    $(document).ready(function(){   //search and sort plugin
+    $('#songs').DataTable({
+        paging:false       //pagination object disabled
+        });
+    });
+
     window.onload= function(){ 
+        currentSongDetails(songs[0]);  //initially first song and album ka name show hoga
+
         for(var i=0; i<songs.length; i++){
             //var name= '#song'+(i+1);
             var song= $('#song'+(i+1)); //select each song id
@@ -98,7 +117,7 @@ function toggleSong(){
             song.find('.song-artist').text(songs[i].artist);
             song.find('.song-album').text(songs[i].album);
             song.find('.song-length').text(songs[i].duration);
-            playList(songs[i].fileName,i+1);
+            addSongNameClickEvent(songs[i],i+1);
         }
         setInterval(function(){
             updateCurrTime();
@@ -121,7 +140,9 @@ function toggleSong(){
         });
 
     $('body').on('keypress', function(event) {
-                if (event.keyCode == 32) {
+        //'event' object ka target jiska tagName "INPUT" hai uspe event lgana
+                if (event.keyCode == 32 && event.target.tagName!="INPUT") {
+                    console.log(event);
                     toggleSong() 
                     }
                 
