@@ -114,12 +114,13 @@ function toggleSong(){
         song.currentTime= song.duration - 5;
     }
 
+    function randomExcluded(min, max, excluded) {
+        var n = Math.floor(Math.random() * (max-min) + min);
+        if (n >= excluded) n++;
+        return n;
+    }
       
-    $(document).ready(function(){   //search and sort plugin
-    $('#songs').DataTable({
-        paging:false       //pagination object disabled
-        });
-    });
+    
 
     window.onload= function(){ 
         currentSongDetails(songs[0]);  //initially first song and album ka name show hoga
@@ -136,8 +137,14 @@ function toggleSong(){
         setInterval(function(){
             updateCurrTime();
         },1000);
+
+        //search and sort plugin
+        $('#songs').DataTable({
+        paging:false       //pagination object disabled
+        });
         
     }
+
     $('.welcome-screen button').on('click', function() {
         var name = $('#name-input').val();
         if (name.length > 2) {
@@ -166,9 +173,24 @@ function toggleSong(){
         //this matlab jo bhi selector selected hai usse phir se select karo
         $(this).toggleClass('disabled');    
         willLoop= 1 - willLoop;
-        console.log(willLoop);
     })
 
+    $('.fa-random').on('click', function(){
+        $(this).toggleClass('disabled');
+        willShuffle= 1 -willShuffle;
+    })
+
+    $('audio').on('ended', function(){
+        var song=document.querySelector('audio');
+        if(willShuffle==1){
+            currentSong= randomExcluded(1, songs.length, currentSong);
+            song.src=songs[currentSong-1].fileName;
+            toggleSong();
+            currentSongDetails(songs[currentSong-1]);
+            console.log('1');
+        }
+    })
+    //next song after current song ends
     $('audio').on('ended', function(){
         var song = document.querySelector('audio');
         if(willLoop==1){    //loop on hai
@@ -176,24 +198,28 @@ function toggleSong(){
             song.src=songs[currentSong].fileName;
             toggleSong();
             currentSongDetails(songs[currentSong]);
+            console.log('2');
             }
             else{   // loop on hai and last song hai
                 song.src=songs[0].fileName; //first song ka source use kro
                 toggleSong();
                 currentSongDetails(songs[0]);   
+                console.log('3');
             }
         }
-        else{   //loop off hai
+       /* else{   //loop off hai
             if(currentSong<songs.length){   //last song se pehle ke songs hai
                 song.src=songs[currentSong].fileName;
                 toggleSong();
                 currentSongDetails(songs[currentSong]);
+                console.log('4');
             }
             else{       //last song ke bad play ka icon show kro and song stop kro
                 $('.play-icon').removeClass('fa-pause').addClass('fa-play');
                 song.currentTime=0;
+                console.log('5');
             }
-        }
+        }*/
         
     })
 
@@ -270,3 +296,5 @@ $('body').on('keypress', function(event){
         }
     }
 })
+
+
