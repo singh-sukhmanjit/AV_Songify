@@ -298,4 +298,168 @@ $('body').on('keypress', function(event){
     }
 })
 
+$('#inst').on('click', function(){
+    $('.main').addClass('hidden');
+    $('#piano_wrapper').removeClass('hidden');
+})
 
+var instrument=0;
+$('#keyboard').on('click', function(){
+    instrument=0;
+})
+
+$('#organ').on('click', function(){
+    instrument=1;
+})
+
+$('#guitar').on('click', function(){
+    instrument=2;
+})
+
+$('#edm').on('click', function(){
+    instrument=3;
+})
+
+$('#C_3').on('click', function(){
+    Synth.play(instrument, 'C', 3, 2);
+})
+
+$('#D_3').on('click', function(){
+    Synth.play(instrument, 'D', 3, 2);
+})
+
+$('#E_3').on('click', function(){
+    Synth.play(instrument, 'E', 3, 2);
+})
+
+$('#F_3').on('click', function(){
+    Synth.play(instrument, 'F', 3, 2);
+})
+
+$('#G_3').on('click', function(){
+    Synth.play(instrument, 'G', 3, 2);
+})
+
+$('#A_3').on('click', function(){
+    Synth.play(instrument, 'A', 3, 2);
+})
+
+$('#B_3').on('click', function(){
+    Synth.play(instrument, 'B', 3, 2);
+})
+
+$('#C_4').on('click', function(){
+    Synth.play(instrument, 'C', 4, 2);
+})
+
+$('#D_4').on('click', function(){
+    Synth.play(instrument, 'D', 4, 2);
+})
+
+$('#E_4').on('click', function(){
+    Synth.play(instrument, 'E', 4, 2);
+})
+
+$('#F_4').on('click', function(){
+    Synth.play(instrument, 'F', 4, 2);
+})
+
+$('#G_4').on('click', function(){
+    Synth.play(instrument, 'G', 4, 2);
+})
+
+$('#A_4').on('click', function(){
+    Synth.play(instrument, 'A', 4, 2);
+})
+
+$('#B_4').on('click', function(){
+    Synth.play(instrument, 'B', 4, 2);
+})
+
+$('#C_5').on('click', function(){
+    Synth.play(instrument, 'C', 5, 2);
+})
+
+$('#D_5').on('click', function(){
+    Synth.play(instrument, 'D', 5, 2);
+})
+
+$('#E_5').on('click', function(){
+    Synth.play(instrument, 'E', 5, 2);
+})
+
+$('#F_5').on('click', function(){
+    Synth.play(instrument, 'F', 5, 2);
+})
+
+$('#G_5').on('click', function(){
+    Synth.play(instrument, 'G', 5, 2);
+})
+
+$('#A_5').on('click', function(){
+    Synth.play(instrument, 'A', 5, 2);
+})
+
+$('#B_5').on('click', function(){
+    Synth.play(instrument, 'B', 5, 2);
+})
+
+$('#CH_3').on('click', function(){
+    Synth.play(instrument, 'C#', 3, 2);
+})
+
+$('#DH_3').on('click', function(){
+    Synth.play(instrument, 'D#', 3, 2);
+})
+
+$('#FH_3').on('click', function(){
+    Synth.play(instrument, 'F#', 3, 2);
+})
+
+$('#GH_3').on('click', function(){
+    Synth.play(instrument, 'G#', 3, 2);
+})
+
+$('#AH_3').on('click', function(){
+    Synth.play(instrument, 'A#', 3, 2);
+})
+
+$('#CH_4').on('click', function(){
+    Synth.play(instrument, 'C#', 4, 2);
+})
+
+$('#DH_4').on('click', function(){
+    Synth.play(instrument, 'D#', 4, 2);
+})
+
+$('#FH_4').on('click', function(){
+    Synth.play(instrument, 'F#', 4, 2);
+})
+
+$('#GH_4').on('click', function(){
+    Synth.play(instrument, 'G#', 4, 2);
+})
+
+$('#AH_4').on('click', function(){
+    Synth.play(instrument, 'A#', 4, 2);
+})
+
+$('#CH_5').on('click', function(){
+    Synth.play(instrument, 'C#', 5, 2);
+})
+
+$('#DH_5').on('click', function(){
+    Synth.play(instrument, 'D#', 5, 2);
+})
+
+$('#FH_5').on('click', function(){
+    Synth.play(instrument, 'F#', 5, 2);
+})
+
+$('#GH_5').on('click', function(){
+    Synth.play(instrument, 'G#', 5, 2);
+})
+
+$('#AH_5').on('click', function(){
+    Synth.play(instrument, 'A#', 5, 2);
+})
