@@ -127,7 +127,7 @@ function toggleSong(){
         for(var i=0; i<songs.length; i++){
             //var name= '#song'+(i+1);
             var song= $('#song'+(i+1)); //select each song id
-            song.find('.song-name').text(songs[i].name);  //look for .song-name inside each song selector
+            song.find('.song-name').text(songs[i].name);  //look for .song-name inside each selector of class song-name
             song.find('.song-artist').text(songs[i].artist);
             song.find('.song-album').text(songs[i].album);
             song.find('.song-length').text(songs[i].duration);
@@ -196,3 +196,77 @@ function toggleSong(){
         }
         
     })
+
+$('.fa-step-forward').on('click', function(){
+    var song = document.querySelector('audio');
+    if(currentSong<songs.length){   //last song se pehle ke songs hai
+            song.src=songs[currentSong].fileName;
+            toggleSong();
+            currentSongDetails(songs[currentSong]);
+    }
+    else{   
+        song.src=songs[0].fileName; //agr last song hai to first song chlega
+        toggleSong();
+        currentSongDetails(songs[0]);   
+    }
+
+})
+
+//next song using 'n' on keyboard
+$('body').on('keypress', function(event){
+    if(event.key == "n" && event.target.tagName!=="INPUT"){
+            var song = document.querySelector('audio');
+        if(currentSong<songs.length){   //last song se pehle ke songs hai
+                song.src=songs[currentSong].fileName;
+                toggleSong();
+                currentSongDetails(songs[currentSong]);
+        }
+        else{   
+            song.src=songs[0].fileName; //agr last song hai to first song chlega
+            toggleSong();
+            currentSongDetails(songs[0]);   
+        }
+    }
+})
+
+$('.fa-step-backward').on('click', function(){
+    var song = document.querySelector('audio');
+    if(currentSong==1){ //agr first song hai to last song chlega
+        //agr currentSong=1 then songs[1] mtlb 2nd song, thats why currentSong=4-1=3 is songs[3]= lastsong
+        currentSong= songs.length - 1;  
+        song.src=songs[currentSong].fileName;
+        toggleSong();
+        currentSongDetails(songs[currentSong]);
+        console.log(currentSong);
+    }
+    else{
+        currentSong -= 2;   //currentSong agr 4 hai then 4-2=2 is songs[2] mtlb 3rd song
+        song.src=songs[currentSong].fileName;
+        toggleSong();
+        currentSongDetails(songs[currentSong]);
+        console.log(currentSong);
+    }
+
+})
+
+//prev song using 'p' on keyboard
+$('body').on('keypress', function(event){
+    if(event.key == "p" && event.target.tagName!=="INPUT"){
+        var song = document.querySelector('audio');
+        if(currentSong==1){ //agr first song hai to last song chlega
+            //agr currentSong=1 then songs[1] mtlb 2nd song, thats why currentSong=4-1=3 is songs[3]= lastsong
+            currentSong= songs.length - 1;  
+            song.src=songs[currentSong].fileName;
+            toggleSong();
+            currentSongDetails(songs[currentSong]);
+            console.log(currentSong);
+        }
+        else{
+            currentSong -= 2;   //currentSong agr 4 hai then 4-2=2 is songs[2] mtlb 3rd song
+            song.src=songs[currentSong].fileName;
+            toggleSong();
+            currentSongDetails(songs[currentSong]);
+            console.log(currentSong);
+        }
+    }
+})
