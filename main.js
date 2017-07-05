@@ -59,13 +59,18 @@ function toggleSong(){
         });
     }
 
+    var currentSong= 1;
+    var willLoop= 0;
+    var willShuffle= 0;
+
     var songs=[{
         'name': 'Coldplay- Fix You',
         'artist': 'Coldplay',
         'album': 'Coldplay',
         'duration': '4:07',
         'fileName': 'songs/fix_you.mp3',
-        'albumArt': 'img/coldplay.jpg'
+        'albumArt': 'img/coldplay.jpg',
+        'songNumber': 1
     },
     {
         'name': 'Coldplay- For You',
@@ -73,7 +78,8 @@ function toggleSong(){
         'album': 'Coldplay',
         'duration': '5:43',
         'fileName': 'songs/for_you.mp3',
-        'albumArt': 'img/coldplay.jpg'
+        'albumArt': 'img/coldplay.jpg',
+        'songNumber': 2
     },
     {
         'name': 'Coldplay- Sky Full Of Stars',
@@ -81,7 +87,8 @@ function toggleSong(){
         'album': 'Coldplay',
         'duration': '4:34',
         'fileName': 'songs/sky_full_of_stars.mp3',
-        'albumArt': 'img/coldplay.jpg'
+        'albumArt': 'img/coldplay.jpg',
+        'songNumber': 3
     },
     {
         'name': 'Coldplay- Yellow',
@@ -89,7 +96,8 @@ function toggleSong(){
         'album': 'Coldplay',
         'duration': '4:30',
         'fileName': 'songs/yellow.mp3',
-        'albumArt': 'img/coldplay.jpg'
+        'albumArt': 'img/coldplay.jpg',
+        'songNumber': 4
     }
     ]
 
@@ -98,6 +106,12 @@ function toggleSong(){
         $('.current-song-image').attr('src', songObj.albumArt); 
         $('.current-song-name').text(songObj.name);
         $('.current-song-album').text(songObj.album)
+        currentSong=songObj.songNumber;
+    }
+
+    function timeJump(){
+        var song= document.querySelector('audio');
+        song.currentTime= song.duration - 5;
     }
 
       
@@ -147,3 +161,23 @@ function toggleSong(){
                     }
                 
             });
+
+    $('.fa-repeat').on('click', function(){
+        //this matlab jo bhi selector selected hai usse phir se select karo
+        $(this).toggleClass('disabled');    
+        willLoop= 1 - willLoop;
+        console.log(willLoop);
+    })
+
+    $('audio').on('ended', function(){
+        var song = document.querySelector('audio');
+        if(currentSong<songs.length){
+        song.src=songs[currentSong].fileName;
+        toggleSong();
+        currentSongDetails(songs[currentSong]);
+        }
+        else{       
+            $('.play-icon').removeClass('fa-pause').addClass('fa-play');
+            song.currentTime=0;
+        }
+    })
