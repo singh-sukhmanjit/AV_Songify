@@ -171,13 +171,28 @@ function toggleSong(){
 
     $('audio').on('ended', function(){
         var song = document.querySelector('audio');
-        if(currentSong<songs.length){
-        song.src=songs[currentSong].fileName;
-        toggleSong();
-        currentSongDetails(songs[currentSong]);
+        if(willLoop==1){    //loop on hai
+            if(currentSong<songs.length){   //last song se pehle ke songs hai
+            song.src=songs[currentSong].fileName;
+            toggleSong();
+            currentSongDetails(songs[currentSong]);
+            }
+            else{   // loop on hai and last song hai
+                song.src=songs[0].fileName; //first song ka source use kro
+                toggleSong();
+                currentSongDetails(songs[0]);   
+            }
         }
-        else{       
-            $('.play-icon').removeClass('fa-pause').addClass('fa-play');
-            song.currentTime=0;
+        else{   //loop off hai
+            if(currentSong<songs.length){   //last song se pehle ke songs hai
+                song.src=songs[currentSong].fileName;
+                toggleSong();
+                currentSongDetails(songs[currentSong]);
+            }
+            else{       //last song ke bad play ka icon show kro and song stop kro
+                $('.play-icon').removeClass('fa-pause').addClass('fa-play');
+                song.currentTime=0;
+            }
         }
+        
     })
