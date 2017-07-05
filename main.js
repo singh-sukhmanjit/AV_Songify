@@ -111,7 +111,7 @@ function toggleSong(){
 
     function timeJump(){
         var song= document.querySelector('audio');
-        song.currentTime= song.duration - 5;
+        song.currentTime= song.duration - 2;
     }
 
     function randomExcluded(min, max, excluded) {
@@ -120,6 +120,12 @@ function toggleSong(){
         return n;
     }
       
+    function changeSong(){
+        var song=document.querySelector('audio');
+        song.src=songs[currentSong].fileName;
+        toggleSong();
+        currentSongDetails(songs[currentSong]);
+    }
     
 
     window.onload= function(){ 
@@ -180,6 +186,7 @@ function toggleSong(){
         willShuffle= 1 -willShuffle;
     })
 
+    //after song ends it check for shuffle on, loop on, loop off
     $('audio').on('ended', function(){
         var song=document.querySelector('audio');
         if(willShuffle==1){
@@ -187,90 +194,90 @@ function toggleSong(){
             song.src=songs[currentSong-1].fileName;
             toggleSong();
             currentSongDetails(songs[currentSong-1]);
-            console.log('1');
         }
-    })
-    //next song after current song ends
-    $('audio').on('ended', function(){
-        var song = document.querySelector('audio');
-        if(willLoop==1){    //loop on hai
+
+        else if(willLoop==1){    //loop on hai
             if(currentSong<songs.length){   //last song se pehle ke songs hai
-            song.src=songs[currentSong].fileName;
-            toggleSong();
-            currentSongDetails(songs[currentSong]);
-            console.log('2');
+                changeSong();
             }
             else{   // loop on hai and last song hai
                 song.src=songs[0].fileName; //first song ka source use kro
                 toggleSong();
-                currentSongDetails(songs[0]);   
-                console.log('3');
+                currentSongDetails(songs[0]); 
             }
         }
-       /* else{   //loop off hai
+
+        else{   //loop off hai
             if(currentSong<songs.length){   //last song se pehle ke songs hai
-                song.src=songs[currentSong].fileName;
-                toggleSong();
-                currentSongDetails(songs[currentSong]);
-                console.log('4');
+                changeSong();
             }
             else{       //last song ke bad play ka icon show kro and song stop kro
                 $('.play-icon').removeClass('fa-pause').addClass('fa-play');
                 song.currentTime=0;
-                console.log('5');
             }
-        }*/
-        
+        }
     })
-
+   
+//prev song using mouse
 $('.fa-step-forward').on('click', function(){
     var song = document.querySelector('audio');
-    if(currentSong<songs.length){   //last song se pehle ke songs hai
-            song.src=songs[currentSong].fileName;
-            toggleSong();
-            currentSongDetails(songs[currentSong]);
+    if(willShuffle==1){
+        currentSong= randomExcluded(1, songs.length, currentSong);
+        song.src=songs[currentSong-1].fileName;
+        toggleSong();
+        currentSongDetails(songs[currentSong-1]);
     }
-    else{   
+
+    else{
+        if(currentSong<songs.length){   //last song se pehle ke songs hai
+            changeSong();
+        }
+        else{   
         song.src=songs[0].fileName; //agr last song hai to first song chlega
         toggleSong();
-        currentSongDetails(songs[0]);   
+        currentSongDetails(songs[0]); 
+        }  
     }
+    
 
 })
 
 //next song using 'n' on keyboard
 $('body').on('keypress', function(event){
     if(event.key == "n" && event.target.tagName!=="INPUT"){
-            var song = document.querySelector('audio');
+        var song = document.querySelector('audio');
+    if(willShuffle==1){
+        currentSong= randomExcluded(1, songs.length, currentSong);
+        song.src=songs[currentSong-1].fileName;
+        toggleSong();
+        currentSongDetails(songs[currentSong-1]);
+    }
+
+    else{
         if(currentSong<songs.length){   //last song se pehle ke songs hai
-                song.src=songs[currentSong].fileName;
-                toggleSong();
-                currentSongDetails(songs[currentSong]);
+            changeSong();
         }
         else{   
-            song.src=songs[0].fileName; //agr last song hai to first song chlega
-            toggleSong();
-            currentSongDetails(songs[0]);   
-        }
+        song.src=songs[0].fileName; //agr last song hai to first song chlega
+        toggleSong();
+        currentSongDetails(songs[0]); 
+        }  
+    }
     }
 })
 
+//prev song using mouse
 $('.fa-step-backward').on('click', function(){
     var song = document.querySelector('audio');
     if(currentSong==1){ //agr first song hai to last song chlega
         //agr currentSong=1 then songs[1] mtlb 2nd song, thats why currentSong=4-1=3 is songs[3]= lastsong
         currentSong= songs.length - 1;  
-        song.src=songs[currentSong].fileName;
-        toggleSong();
-        currentSongDetails(songs[currentSong]);
-        console.log(currentSong);
+        changeSong();
+
     }
     else{
         currentSong -= 2;   //currentSong agr 4 hai then 4-2=2 is songs[2] mtlb 3rd song
-        song.src=songs[currentSong].fileName;
-        toggleSong();
-        currentSongDetails(songs[currentSong]);
-        console.log(currentSong);
+        changeSong();
     }
 
 })
@@ -282,17 +289,11 @@ $('body').on('keypress', function(event){
         if(currentSong==1){ //agr first song hai to last song chlega
             //agr currentSong=1 then songs[1] mtlb 2nd song, thats why currentSong=4-1=3 is songs[3]= lastsong
             currentSong= songs.length - 1;  
-            song.src=songs[currentSong].fileName;
-            toggleSong();
-            currentSongDetails(songs[currentSong]);
-            console.log(currentSong);
+            changeSong();
         }
         else{
             currentSong -= 2;   //currentSong agr 4 hai then 4-2=2 is songs[2] mtlb 3rd song
-            song.src=songs[currentSong].fileName;
-            toggleSong();
-            currentSongDetails(songs[currentSong]);
-            console.log(currentSong);
+            changeSong();
         }
     }
 })
