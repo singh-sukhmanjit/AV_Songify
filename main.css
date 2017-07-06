@@ -250,6 +250,7 @@ table.dataTable tbody tr {
     height: 200px;
     width: 40px;
     border: 1px solid rgba(32,32,32,0.2);
+    z-index: 1;
     
 }
 
@@ -259,15 +260,12 @@ table.dataTable tbody tr {
     height: 120px;
     width: 30px;
     border: 1px solid rgb(32,32,32);
-    z-index: 1;
+    z-index: 2;
 }
+
 
 .key:hover{
     background-color: orange;
-}
-
-.white h4{
-    margin-bottom: 10px;
 }
 
 .white .keyHead{
@@ -278,8 +276,6 @@ table.dataTable tbody tr {
     margin-top: 45px;
 }
 
-#instrument{
-}
 #instrument h4{
     display: inline-block;
     margin:20px 20px;
@@ -290,146 +286,150 @@ table.dataTable tbody tr {
     cursor: pointer;
 }
 
-#C_3{
+#w1{
     left: 0;
 }
 
-#D_3{
+#w2{
     left: 40px;
 }
 
-#E_3{
+#w3{
     left: 80px;
 }
 
-#F_3{
+#w4{
     left: 120px;
 }
 
-#G_3{
+#w5{
     left: 160px;
 }
 
-#A_3{
+#w6{
     left: 200px;
 }
 
-#B_3{
+#w7{
     left: 240px;
 }
 
-#C_4{
+#w8{
     left: 280px;
 }
 
-#D_4{
+#w9{
     left: 320px;
 }
 
-#E_4{
+#w10{
     left: 360px;
 }
 
-#F_4{
+#w11{
     left: 400px;
 }
 
-#G_4{
+#w12{
     left: 440px;
 }
 
-#A_4{
+#w13{
     left: 480px;
 }
 
-#B_4{
+#w14{
     left: 520px;
 }
 
-#C_5{
+#w15{
     left: 560px;
 }
 
-#D_5{
+#w16{
     left: 600px;
 }
 
-#E_5{
+#w17{
     left: 640px;
 }
 
-#F_5{
+#w18{
     left: 680px;
 }
 
-#G_5{
+#w19{
     left: 720px;
 }
 
-#A_5{
+#w20{
     left: 760px;
 }
 
-#B_5{
+#w21{
     left: 800px;
 }
 
-#CH_3{
+#b1{
     left: 25px;
 }
 
-#DH_3{
+#b2{
     left: 65px;
 }
 
-#FH_3{
+#b3{
     left: 145px;
 }
 
-#GH_3{
+#b4{
     left: 185px;
 }
 
-#AH_3{
+#b5{
     left: 225px;
 }
 
-#CH_4{
+#b6{
     left: 305px;
 }
 
-#DH_4{
+#b7{
     left: 345px;
 }
 
-#FH_4{
+#b8{
     left: 425px;
 }
 
-#GH_4{
+#b9{
     left: 465px;
 }
 
-#AH_4{
+#b10{
     left: 505px;
 }
 
-#CH_5{
+#b11{
     left: 585px;
 }
 
-#DH_5{
+#b12{
     left: 625px;
 }
 
-#FH_5{
+#b13{
     left: 705px;
 }
 
-#GH_5{
+#b14{
     left: 745px;
 }
 
-#AH_5{
+#b15{
     left: 785px;
+}
+
+.pressed{
+    background-color: red;
 }
