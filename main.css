@@ -232,7 +232,6 @@ table.dataTable tbody tr {
     margin: 30px auto;
     width: 840px;
     height: 200px;
-    background-color: red;
     font-size: 12px;
 }
 
@@ -263,11 +262,6 @@ table.dataTable tbody tr {
     z-index: 2;
 }
 
-
-.key:hover{
-    background-color: orange;
-}
-
 .white .keyHead{
     margin-top: 135px;
 }
@@ -283,7 +277,8 @@ table.dataTable tbody tr {
 }
 
 #inst{
-    cursor: pointer;
+    color: #fff;
+    text-decoration: none;
 }
 
 #w1{
