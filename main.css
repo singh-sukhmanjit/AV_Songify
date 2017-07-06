@@ -6,6 +6,7 @@
 
 html,
 body {
+    font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
     height: 100%;
     width: 100%;
     border: 0;
@@ -223,86 +224,212 @@ table.dataTable tbody tr {
 
 #piano_wrapper{
 
-    position: relative;
-    width: 920px;
-    left: 200px;
-    top:200px;
-}
-
-#piano{
     
 }
 
-.white-key{
+#piano{
+    position: relative;
+    margin: 30px auto;
+    width: 840px;
+    height: 200px;
+    background-color: red;
+    font-size: 12px;
+}
+
+.key{
+    display:block;
+    cursor:pointer;
+    position: absolute;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    text-align: center;
+}
+
+.white{
     background-color: #fff;
     height: 200px;
     width: 40px;
     border: 1px solid rgba(32,32,32,0.2);
-    display:inline-block;
-    cursor:pointer;
-    position: relative;
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
+    
 }
 
-.black-key{
-    font-size: 12px;
+.black{
     color: #fff;
     background-color: #000;
     height: 120px;
     width: 30px;
     border: 1px solid rgb(32,32,32);
-    display: inline-block;
-    cursor:pointer;
-    position: absolute;
-    bottom: 80px;
-    margin-left: -17px;
-    z-index: 2;
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
+    z-index: 1;
 }
 
-.white-key:hover{
+.key:hover{
     background-color: orange;
 }
 
-.black-key:hover{
-    background-color: orange;
-}
-
-.white-key h4{
+.white h4{
     margin-bottom: 10px;
 }
 
-.white-key .keyHead{
+.white .keyHead{
     margin-top: 135px;
-    margin-left: 10px;
 }
 
-.white-key .keyFoot{
-    margin-top: 20px;
-    margin-left: 10px;
-}
-
-.black-key .keyHead{
+.black .keyHead{
     margin-top: 45px;
-    margin-left: 8px;
-}
-
-.black-key .keyFoot{
-    margin-top: 20px;
-    margin-left: 4px;
 }
 
 #instrument{
-    margin-left:250px;
 }
 #instrument h4{
     display: inline-block;
-    margin-right: 40px;
+    margin:20px 20px;
     cursor: pointer;
 }
 
 #inst{
     cursor: pointer;
+}
+
+#C_3{
+    left: 0;
+}
+
+#D_3{
+    left: 40px;
+}
+
+#E_3{
+    left: 80px;
+}
+
+#F_3{
+    left: 120px;
+}
+
+#G_3{
+    left: 160px;
+}
+
+#A_3{
+    left: 200px;
+}
+
+#B_3{
+    left: 240px;
+}
+
+#C_4{
+    left: 280px;
+}
+
+#D_4{
+    left: 320px;
+}
+
+#E_4{
+    left: 360px;
+}
+
+#F_4{
+    left: 400px;
+}
+
+#G_4{
+    left: 440px;
+}
+
+#A_4{
+    left: 480px;
+}
+
+#B_4{
+    left: 520px;
+}
+
+#C_5{
+    left: 560px;
+}
+
+#D_5{
+    left: 600px;
+}
+
+#E_5{
+    left: 640px;
+}
+
+#F_5{
+    left: 680px;
+}
+
+#G_5{
+    left: 720px;
+}
+
+#A_5{
+    left: 760px;
+}
+
+#B_5{
+    left: 800px;
+}
+
+#CH_3{
+    left: 25px;
+}
+
+#DH_3{
+    left: 65px;
+}
+
+#FH_3{
+    left: 145px;
+}
+
+#GH_3{
+    left: 185px;
+}
+
+#AH_3{
+    left: 225px;
+}
+
+#CH_4{
+    left: 305px;
+}
+
+#DH_4{
+    left: 345px;
+}
+
+#FH_4{
+    left: 425px;
+}
+
+#GH_4{
+    left: 465px;
+}
+
+#AH_4{
+    left: 505px;
+}
+
+#CH_5{
+    left: 585px;
+}
+
+#DH_5{
+    left: 625px;
+}
+
+#FH_5{
+    left: 705px;
+}
+
+#GH_5{
+    left: 745px;
+}
+
+#AH_5{
+    left: 785px;
 }
