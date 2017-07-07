@@ -163,7 +163,7 @@ function toggleSong(){
     }
 ]
 var playList_name=[songs,mahi_list]
-var currentPlayList=playList_name[1];
+var currentPlayList=playList_name[0];
 
 function dataRender(){  
         for(var j=0; j<4; j++){
