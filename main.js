@@ -297,8 +297,3 @@ $('body').on('keypress', function(event){
         }
     }
 })
-
-$('#inst').on('click', function(){
-    $('.main').addClass('hidden');
-    $('#piano_wrapper').removeClass('hidden');
-})
