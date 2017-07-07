@@ -23,6 +23,12 @@ h1 {
     height: 100%;
     width: 100%;
     background-color: #BBB;
+    display: flex;
+}
+
+#piano_wrapper{
+    background-color: #BBB;
+    height: 100%;
 }
 
 .welcome-screen {
@@ -35,12 +41,45 @@ h1 {
 }
 
 .main {
-    width: 100%;
+    width: 80%;
     height: 100%;
     display: flex;
     flex-direction: column;
     color: white;
     background-color: #1f1f1f;
+}
+
+#playList{
+    width: 20%;
+    height: 100%;
+    background-color: grey;
+    border-right: 1px solid #000;
+
+}
+
+#playList h3{
+    background-color: #08d957;
+    margin:10px;
+    margin-top: 30px;
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#songList{
+    list-style: none;
+    margin-left: 0;
+    padding:20px;
+    text-align: center; 
+}
+
+#songList li{
+    cursor: pointer;
+    margin: 15px;
+    padding: 10px;
+    background-color: #282828;
+    border-radius: 5px;
+    color: #fff;
 }
 
 .main header {
@@ -185,6 +224,7 @@ h1 {
     height: 100px;
     width: 100px;
     margin-right: 1rem;
+    border:1px solid #000;
 }
 
 .current-song-name {

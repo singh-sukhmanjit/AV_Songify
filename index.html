@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title> Song App</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="font-awesome.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="main.css">
@@ -19,12 +20,21 @@
                 <button> Go </button>
             </div>
         </section>
+        <div id="playList">
+            <h3>Playlist</h3>
+            <ul id="songList">
+                <li id="songList1">Default</li>
+                <li id="songList2">Mahi Way</li>
+                <li id="songList3">Chotta Dhamaka</li>
+                <li id="songList4">Random</li>
+            </ul>
+        </div>
         <div class="main">
             <header>
                 <div class="right floated user-name"> </div>
             </header>
             <section class="content">
-                <audio src="songs/fix_you.mp3"></audio>
+                <audio></audio>
 
                 <table id="songs">
                     <thead class="list-headers">
@@ -105,9 +115,9 @@
             </footer>
         </div>
 
-        
     </div>
     <script src="jquery-3.2.1.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
     <script src="main.js"></script>
 </body>
