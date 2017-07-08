@@ -71,11 +71,13 @@ function toggleSong(){
     $('#songList1').on('click',function(){
         currentPlayList=playList_name[0];
         dataRender();
+      
     })
 
     $('#songList2').on('click',function(){
         currentPlayList=playList_name[1];
         dataRender();
+
     })
 
     $('#songList3').on('click',function(){
@@ -140,7 +142,7 @@ function toggleSong(){
         'album': 'Cheap Thrills',
         'duration': '3:45',
         'fileName': 'songs/cheap_thrills.mp3',
-        'albumArt': 'img/cheap_thrills.jpg',
+        'albumArt': 'img/cheap_thrills.JPG',
         'songNumber': 2
     },
     {
@@ -225,9 +227,24 @@ function dataRender(){
     }
         
     }
-                
 
+    function song_list(){
+        for(var i=0; i<4;i++){
+            var song_id=$('<tr class="song" id="song'+(i+1)+'">'
+                    +'<td class="song-name"></td>'
+                    +'<td class="song-artist"></td>'
+                    +'<td class="song-album"></td>'
+                    +'<td class="song-length"></td>'
+                    +'</tr>')
+
+            $('.song-list').append(song_id);
+    }
+    }
+
+    
 window.onload= function(){ 
+        song_list();
+    
       //initially first song and album ka name show hoga
         dataRender();
 
@@ -237,7 +254,7 @@ window.onload= function(){
 
         //search and sort plugin
         
-
+ 
 }
 
     $('.welcome-screen button').on('click', function() {

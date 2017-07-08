@@ -152,7 +152,7 @@ h1 {
 }
 
 .main .content {
-    width: 800px;
+    width: 100%;
     margin: 2rem auto;
 }
 
@@ -172,6 +172,14 @@ h1 {
 
 .list-headers > div:last-child {
     text-align: right;
+}
+
+.song-list{
+    overflow: auto;
+}
+
+.song-list::-webkit-scrollbar{
+    display: none;
 }
 
 .song-list .song {
@@ -218,6 +226,7 @@ h1 {
     position: absolute;
     bottom: 0;
     display: flex;
+    padding-left: 147px;
 }
 
 .current-song-image {
@@ -241,12 +250,18 @@ h1 {
 table.dataTable tbody tr {
     background-color: initial;
 }
+
+#songs{
+    padding-left: 147px;
+    padding-right: 147px;
+}
 #songs_info {
     display: none;
 }
 
 #songs_filter {
     color: transparent;
+    padding-right: 147px;
 }
 #songs_filter input {
     width: 400px;

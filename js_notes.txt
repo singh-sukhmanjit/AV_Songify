@@ -37,3 +37,5 @@ $(document).ready(function(){
 ....})	is used for  jquery
 
 #(selector).toggleClass('className')	add/remove class
+
+$("p:eq(1)") //element selector using index, 2nd element in <p>
