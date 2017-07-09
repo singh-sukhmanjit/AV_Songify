@@ -114,6 +114,25 @@ function pressed(i){
 }
 
 window.onload= function(){
+    for(var i=0; i<21;i++){
+      var white_key=$('<div class="white key" id="w'+(i+1)+'">'
+                    +'<div class="label">'
+                    +'<h4 class="keyHead"></h4>'
+                    +'<h4 class="keyFoot"></h4>'
+                    +'</div>'
+                    +'</div>')
+      $('#piano').append(white_key);
+    }
+
+    for(var i=0; i<15;i++){
+      var black_key=$('<div class="black key" id="b'+(i+1)+'">'
+                    +'<div class="label">'
+                    +'<h4 class="keyHead"></h4>'
+                    +'<h4 class="keyFoot"></h4>'
+                    +'</div>'
+                    +'</div>')
+      $('#piano').append(black_key);
+    }
 	white_keys();	//onload pe white keys and black keys ke note and keyboard key show krni
     black_keys();
 }
