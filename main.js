@@ -65,8 +65,6 @@ function toggleSong(){
     var willLoop= 0;
     var willShuffle= 0;
 
-    
-    
 
     $('#songList1').on('click',function(){
         currentPlayList=playList_name[0];
@@ -82,89 +80,173 @@ function toggleSong(){
 
     $('#songList3').on('click',function(){
         currentPlayList=playList_name[2];
+        dataRender();
     })
 
     $('#songList4').on('click',function(){
         currentPlayList=playList_name[3];
+        dataRender();
     })
 
+    
     var songs=[{
-        'name': 'Coldplay- Fix You',
-        'artist': 'Coldplay',
-        'album': 'Coldplay',
-        'duration': '4:07',
-        'fileName': 'songs/fix_you.mp3',
-        'albumArt': 'img/coldplay.jpg',
+        'name': 'Galti Se Mistake',
+        'artist': 'Arijit Singh , Amit Mishra',
+        'album': 'Jagga Jasoos',
+        'duration': '3:23',
+        'fileName': 'https://dl.jatt.link/cdn9.jatt.link/9995b9518d0a3dc571201ec401f9f51a/tjazv/Galti%20Se%20Mistake-(Mr-Jatt.com).mp3',
+        'albumArt': 'https://static.jatt.link/thumbs/100_100/uzbai.jpg',
         'songNumber': 1
     },
     {
-        'name': 'Coldplay- For You',
-        'artist': 'Coldplay',
-        'album': 'Coldplay',
-        'duration': '5:43',
-        'fileName': 'songs/for_you.mp3',
-        'albumArt': 'img/coldplay.jpg',
+        'name': 'Phir Bhi Tumko Chaahunga',
+        'artist': 'Mithoon , Arijit Singh , Shashaa Tirupati',
+        'album': 'Half Girlfriend',
+        'duration': '5:51',
+        'fileName': 'https://dl.jatt.link/cdn8.jatt.link/3122b80a37cc9a39ae80e8011d437074/iaezv/Phir%20Bhi%20Tumko%20Chaahunga-(Mr-Jatt.com).mp3',
+        'albumArt': 'https://static.jatt.link/thumbs/100_100/sgpai.jpg',
         'songNumber': 2
     },
     {
-        'name': 'Coldplay- Sky Full Of Stars',
-        'artist': 'Coldplay',
-        'album': 'Coldplay',
-        'duration': '4:34',
-        'fileName': 'songs/sky_full_of_stars.mp3',
-        'albumArt': 'img/coldplay.jpg',
+        'name': 'Oh Ho Ho Ho (Remix)',
+        'artist': 'Sukhbir , Ikka Singh',
+        'album': 'Hindi Medium',
+        'duration': '4:04',
+        'fileName': 'https://dl.jatt.link/cdn8.jatt.link/859f8ab9707556f92cd3d37d373d25f9/xiezv/Oh%20Ho%20Ho%20Ho%20%20Remix%20-(Mr-Jatt.com).mp3',
+        'albumArt': 'https://static.jatt.link/thumbs/100_100/fzpai.jpg',
         'songNumber': 3
     },
     {
-        'name': 'Coldplay- Yellow',
-        'artist': 'Coldplay',
-        'album': 'Coldplay',
-        'duration': '4:30',
-        'fileName': 'songs/yellow.mp3',
-        'albumArt': 'img/coldplay.jpg',
+        'name': 'Bacha',
+        'artist': 'Prabh Gill',
+        'album': 'Bacha',
+        'duration': '4:02',
+        'fileName': 'https://dl.jatt.link/cdn8.jatt.link/d7b46d781eea5e80b58a25ec616a501c/oaxmv/Bacha-(Mr-Jatt.com).mp3',
+        'albumArt': 'https://static.jatt.link/thumbs/100_100/vssvi.jpg',
         'songNumber': 4
     }]
 
+    
+
+    var dil=[
+        {
+            'name': 'FADED',
+            'artist': 'ALAN WALKER',
+            'album': 'Single',
+            'duration': '3:32',
+            'fileName': 'http://www.songlover.club/download2.php?filep=glory-data/downloadfile/41905/Faded_(Alan_Walker)(www.englishsong.in).mp3',
+            'albumArt': 'http://artimg.songfacts.com/5880fe1b7d051517ce6fd95ffe2caa67-lg.png',
+            'songNumber': 1
+        },
+        {
+            'name': 'Kya Hua Tera Wada',
+            'artist': 'Mohd Rafi',
+            'album': 'Yaadon Ki Baaraat',
+            'duration': '4:24',
+            'fileName': 'https://dl.jatt.link/cdn1.jatt.link/405c66093a2c6c809ecc82301d7bb017/bzpkv/Kya%20Hua%20Tera%20Wada-(Mr-Jatt.com).mp3',
+            'albumArt': 'https://static.jatt.link/thumbs/100_100/oueei.jpg',
+            'songNumber': 2
+        },
+        {
+            'name': 'Atrangi Yaari',
+            'artist': 'Amitabh Bachchan , Farhan Akhtar',
+            'album': 'Wazir',
+            'duration': '3:37',
+            'fileName': 'https://dl.jatt.link/cdn7.jatt.link/663273022e614292ed96b638ac63bde5/qlvmv/Atrangi%20Yaari-(Mr-Jatt.com).mp3',
+            'albumArt': 'https://upload.wikimedia.org/wikipedia/en/thumb/d/db/Wazir_Poster.jpeg/220px-Wazir_Poster.jpeg',
+            'songNumber': 3
+        },
+        {
+            'name': 'Mere Mehboob Qayamat Hogi',
+            'artist': 'Kishore Kumar',
+            'album': 'Mr. X In Bombay',
+            'duration': '3:52',
+            'fileName': 'https://dl.jatt.link/cdn5.jatt.link/418462d9b466220641dd27a2dfd4cfb4/mscjv/Mere%20Mehboob%20Qayamat%20Hogi-(Mr-Jatt.com).mp3',
+            'albumArt': 'http://33.webmusic.pw/33l7F/music/hindi/movies/1964/m/mr_x_in_bombay/img.jpg',
+            'songNumber': 4
+        }
+    ]
+
+    var love=[
+        {
+            'name': 'Love Story',
+            'artist': 'Taylor Swift',
+            'album': 'Fearless',
+            'duration': '3:56',
+            'fileName': 'http://www.songlover.club/download2.php?filep=glory-data/downloadfile/9982/Love_Story_(Taylor_Swift)(www.englishsong.in).mp3',
+            'albumArt': 'https://images-na.ssl-images-amazon.com/images/I/51qmhXWZBxL.jpg',
+            'songNumber': 1
+        },
+        {
+            'name': 'Sing Me To Sleep',
+            'artist': 'ALAN WALKER',
+            'album': 'Single',
+            'duration': '3:09',
+            'fileName': 'http://www.songlover.club/download2.php?filep=glory-data/downloadfile/43155/Sing_Me_To_Sleep_(Alan_Walker)(www.englishsong.in).mp3',
+            'albumArt': 'https://images-genius-com.imgix.net/82006c454b4bb897f02c1a66e2d3f2df.300x300x1.jpg?dpr=1&fit=fill&frame=%2A&h=218&w=218',
+            'songNumber': 2
+        },
+        {
+            'name': 'Mere Rashke Qamar',
+            'artist': 'Arijit Singh',
+            'album': 'Single',
+            'duration': '3:09',
+            'fileName': 'https://dl.jatt.link/cdn8.jatt.link/dc09e7e0bd15594d537661d4d70ac0c3/sjtzv/Mere%20Rashke%20Qamar-(Mr-Jatt.com).mp3',
+            'albumArt': 'http://bemarathi.in/upload_file/595/1099/thumb-Mere%20Rashke%20Qamar%20-%20Arijit%20Singh-(BeMarathi.In).jpg',
+            'songNumber': 3
+        },
+        {
+            'name': 'Hamdard',
+            'artist': 'Arijit Singh',
+            'album': 'Ek Villain',
+            'duration': '4:20',
+            'fileName': 'https://dl.jatt.link/cdn6.jatt.link/464b5c28852a398d1567ac5cf3bcba04/fjgsv/Hamdard%20-(Mr-Jatt.com).mp3',
+            'albumArt': 'https://static.jatt.link/thumbs/100_100/wmtmi.jpg',
+            'songNumber': 4
+        }
+    ]
+
     //mahi_way List
     var mahi_list=[
-    {
-        'name': '1 Excuses',
-        'artist': 'Garry Sandhu Ft. Roach Killa',
-        'album': 'Excuses',
-        'duration': '3:52',
-        'fileName': 'songs/excuses.mp3',
-        'albumArt': 'img/excuses.JPG',
-        'songNumber': 1
-    },
-    {
-        'name': '2 Cheap Thrills',
-        'artist': 'Sia Ft. Sean Paul',
-        'album': 'Cheap Thrills',
-        'duration': '3:45',
-        'fileName': 'songs/cheap_thrills.mp3',
-        'albumArt': 'img/cheap_thrills.JPG',
-        'songNumber': 2
-    },
-    {
-        'name': '3 Raatan',
-        'artist': 'Garry Sandhu',
-        'album': 'Magic',
-        'duration': '4:40',
-        'fileName': 'songs/raatan.mp3',
-        'albumArt': 'img/raatan.JPG',
-        'songNumber': 3
-    },
-    {
-        'name': '4 Laiyan Laiyan',
-        'artist': 'Saad Sultan Ft Rizwan Anwar',
-        'album': 'Single',
-        'duration': '3:04',
-        'fileName': 'songs/laiyan_laiyan.mp3',
-        'albumArt': 'img/laiyan_laiyan.JPG',
-        'songNumber': 4
-    }
-]
-var playList_name=[songs,mahi_list]
+        {
+            'name': 'Excuses',
+            'artist': 'Garry Sandhu Ft. Roach Killa',
+            'album': 'Excuses',
+            'duration': '3:52',
+            'fileName': 'songs/excuses.mp3',
+            'albumArt': 'img/excuses.JPG',
+            'songNumber': 1
+        },
+        {
+            'name': 'Cheap Thrills',
+            'artist': 'Sia Ft. Sean Paul',
+            'album': 'Cheap Thrills',
+            'duration': '3:45',
+            'fileName': 'songs/cheap_thrills.mp3',
+            'albumArt': 'img/cheap_thrills.JPG',
+            'songNumber': 2
+        },
+        {
+            'name': 'Raatan',
+            'artist': 'Garry Sandhu',
+            'album': 'Magic',
+            'duration': '4:40',
+            'fileName': 'songs/raatan.mp3',
+            'albumArt': 'img/raatan.JPG',
+            'songNumber': 3
+        },
+        {
+            'name': 'Laiyan Laiyan',
+            'artist': 'Saad Sultan Ft Rizwan Anwar',
+            'album': 'Single',
+            'duration': '3:04',
+            'fileName': 'songs/laiyan_laiyan.mp3',
+            'albumArt': 'img/laiyan_laiyan.JPG',
+            'songNumber': 4
+        }
+    ]
+
+var playList_name=[songs, dil, love, mahi_list]
 var currentPlayList=playList_name[0];
 
 function dataRender(){  
@@ -176,6 +258,7 @@ function dataRender(){
             for(var i=0; i<playList_name[j].length; i++){
                 //var name= '#song'+(i+1);
                 var song= $('#song'+(i+1)); //select each song id
+                song.find('.song-sr').text((i+1));
                 song.find('.song-name').text(playList_name[j][i].name);  //look for .song-name inside each selector of class song-name
                 song.find('.song-artist').text(playList_name[j][i].artist);
                 song.find('.song-album').text(playList_name[j][i].album);
@@ -234,6 +317,7 @@ function dataRender(){
     function song_list(){
         for(var i=0; i<4;i++){
             var song_id=$('<tr class="song" id="song'+(i+1)+'">'
+                    +'<td class="song-sr"></td>'
                     +'<td class="song-name"></td>'
                     +'<td class="song-artist"></td>'
                     +'<td class="song-album"></td>'
