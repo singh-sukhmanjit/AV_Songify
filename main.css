@@ -251,6 +251,11 @@ table.dataTable tbody tr {
     background-color: initial;
 }
 
+.dataTables_filter input{
+    color: black;
+    font-weight: normal;
+}
+
 #songs{
     padding-left: 147px;
     padding-right: 147px;
@@ -269,13 +274,15 @@ table.dataTable tbody tr {
     font-size: 16px;
 }
 
-.player-buttons .fa {
+.player-buttons .fa, .player-buttons .glyphicon {
     margin-right: 2rem;
+    cursor: pointer;
 }
 
 .fa.disabled {
     color: gray;
 }
+
 
 #piano_wrapper{
 

@@ -15,12 +15,15 @@
         <section class="welcome-screen">
             <h1> Welcome to Songify </h1>
             <h3> Enter name to access your account </h3>
-            <div class="input-wrapper">
-                <input type="text" placeholder="Name" id="name-input">
+            <div class="input-wrapper" method="post">
+                <input type="text" placeholder="Name" id="name-input"><br>
+                <input type="text" placeholder="test@acadview.com" id="email-input"><br>
+                <input type="password" placeholder="JavascriptRocks" id="pwd-input"><br>
                 <button> Go </button>
                 <p></p>
                 
             </div>
+            
         </section>
         <div id="playList" class="hidden">
             <h3>Playlist</h3>
@@ -60,6 +63,7 @@
                 <div>
                 <p class="current-song-name"></p>
                 <p class="current-song-album"></p>
+                <p id="totalSongs"></p>
                 </div>
                 </div>
         
@@ -67,6 +71,7 @@
             <footer>
                 <div class="controls">
                     <div class="player-buttons">
+                      <span class="volume glyphicon glyphicon-volume-up"></span>
                       <i class="fa fa-random clickable disabled" aria-hidden="true"></i>
                       <i class="fa fa-step-backward clickable" aria-hidden="true"></i>
                       <i class="fa fa-play clickable play-icon" aria-hidden="true"></i>

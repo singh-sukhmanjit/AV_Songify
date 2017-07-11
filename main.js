@@ -200,7 +200,10 @@ function dataRender(){
         $('.current-song-name').text(songObj.name);
         $('.current-song-album').text(songObj.album)
         currentSong=songObj.songNumber;
+        $('#totalSongs').text(songObj.songNumber+'/'+currentPlayList.length);
     }
+
+    
 
     function timeJump(){
         var song= document.querySelector('audio');
@@ -241,6 +244,18 @@ function dataRender(){
     }
     }
 
+$('.volume').on('click',function(){
+    var song=document.querySelector('audio');
+    $(this).toggleClass('glyphicon-volume-up glyphicon-volume-off')
+    var check= $(this).hasClass('glyphicon-volume-up');
+    if(check==true){
+        song.volume=1;
+    }
+    else{
+        song.volume=0;
+    }
+})
+
     
 window.onload= function(){ 
         song_list();
@@ -259,15 +274,26 @@ window.onload= function(){
 
     $('.welcome-screen button').on('click', function() {
         var name = $('#name-input').val();
-        if (name.length > 3) {
-            var message = "Welcome, " + name;
-            $('.main .user-name').text(message);
-            $('.welcome-screen').addClass('hidden');
-            $('.main').removeClass('hidden');
-            $('#playList').removeClass('hidden');
-        } else {
-            $('#name-input').addClass('error');
-            $('.input-wrapper').find('p').text('Enter more than 3 characters');
+        var email = $('#email-input').val();
+        var pwd = $('#pwd-input').val();
+        console.log('click');
+        if (name.length > 3) {  
+                if(email=='test@acadview.com' && pwd=='JavascriptRocks'){
+
+                    var message = "Welcome, " + name;
+                    $('.main .user-name').text(message);
+                    $('.welcome-screen').addClass('hidden');
+                    $('.main').removeClass('hidden');
+                    $('#playList').removeClass('hidden');
+                }
+                else {
+                    $('#name-input').addClass('error');
+                    $('.input-wrapper').find('p').text('Email or Password is incorrect');
+                }
+        }
+        else {
+        $('#name-input').addClass('error');
+        $('.input-wrapper').find('p').text('Enter more than 3 characters');
         }
     });
     $('.play-icon').on('click', function() {
