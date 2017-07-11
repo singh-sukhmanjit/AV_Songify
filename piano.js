@@ -60,7 +60,7 @@ $('body').on('click', function(event){
 })
 
 $('body').on('keypress', function(event){
-    var id=event.key;	//jis key ko press kiya vo variable me store hoggi
+    var id=event.key;
     for(var i=0; i<key_id.length;i++){
         if(id==key_id[i]){	// yeh key ko array se match krega
             break;	// 'i' ki value milli
@@ -71,6 +71,7 @@ $('body').on('keypress', function(event){
     Synth.play(instrument, music[i].note, music[i].octave, 2);
     pressed(i);	//'i' ki value use krke find kro konse button ko blink krna hai
 })
+
 
 //function ke sath buttons pe Unka Note and keyboard button ki value show krni hai
 function white_keys(){
@@ -96,25 +97,26 @@ function black_keys(){
                '9','0','=','A','S',
                'F','G','J','K','L'];
     for(var i=0; i<keys.length; i++){
-        console.log(keys[i]);
         var id='#b'+(i+1);
         $(id).find('.keyHead').text(press[i]);
         $(id).find('.keyFoot').text(keys[i]);
+
     }    
 }
 
 //when key press hoga, us key ko blink krne ke liye
 function pressed(i){
     $('#'+music_id[i]).addClass('pressed');
-        console.log('ff');
         setTimeout(function(){
             $('#'+music_id[i]).removeClass('pressed');
-            console.log('kf');
         },200);
+
 }
 
+
 window.onload= function(){
-    for(var i=0; i<21;i++){
+
+for(var i=0; i<21;i++){
       var white_key=$('<div class="white key" id="w'+(i+1)+'">'
                     +'<div class="label">'
                     +'<h4 class="keyHead"></h4>'

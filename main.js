@@ -259,13 +259,15 @@ window.onload= function(){
 
     $('.welcome-screen button').on('click', function() {
         var name = $('#name-input').val();
-        if (name.length > 2) {
+        if (name.length > 3) {
             var message = "Welcome, " + name;
             $('.main .user-name').text(message);
             $('.welcome-screen').addClass('hidden');
             $('.main').removeClass('hidden');
+            $('#playList').removeClass('hidden');
         } else {
             $('#name-input').addClass('error');
+            $('.input-wrapper').find('p').text('Enter more than 3 characters');
         }
     });
     $('.play-icon').on('click', function() {
