@@ -334,9 +334,11 @@ $('.volume').on('click',function(){
     var check= $(this).hasClass('glyphicon-volume-up');
     if(check==true){
         song.volume=1;
+        $('#vol_filled').css("width", 100+"%");
     }
     else{
         song.volume=0;
+        $('#vol_filled').css("width", 0+"%");
     }
 })
 
@@ -347,6 +349,19 @@ $('.player-progress').on('click',function(event){
     $('.progress-filled').css("width", song_seek+"%");
     song.currentTime=song.duration*song_seek;
 })
+
+    var vol=document.querySelector('audio');
+    vol.volume=1;
+    $('#vol_filled').css("width",vol.volume*100+"%");
+
+    $('#vol_slider').on('click',function(event){
+    var song=document.querySelector('audio');
+    var song_seek=(event.pageX-event.target.offsetLeft)/event.currentTarget.clientWidth;
+    $('#vol_filled').css("width", song_seek*100+"%");
+    song.volume=song_seek;
+    
+})
+
 
     
 window.onload= function(){ 
@@ -368,7 +383,6 @@ window.onload= function(){
         var name = $('#name-input').val();
         var email = $('#email-input').val();
         var pwd = $('#pwd-input').val();
-        console.log('click');
         if (name.length > 3) {  
                 if(email=='test@acadview.com' && pwd=='JavascriptRocks'){
 

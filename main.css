@@ -123,6 +123,24 @@ h1 {
     border: 2px solid red;
 }
 
+#vol_slider {
+    height: 8px;
+    width: 100px;
+    background-color: #3d3d3d;
+    border-radius: 4px;
+    margin-right: 2rem;
+    cursor: pointer;
+}
+
+#vol_filled {
+    height: 8px;
+    border-radius: 4px;
+    width: 0;
+    background-color: #959595;
+    
+
+}
+
 .progress-wrapper {
     margin-top: 0.3rem;
     display: flex;
@@ -141,6 +159,7 @@ h1 {
     border-radius: 4px;
     margin-right: 6px;
     margin-left: 6px;
+    cursor: pointer;
 }
 
 .progress-filled {
