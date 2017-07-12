@@ -340,6 +340,14 @@ $('.volume').on('click',function(){
     }
 })
 
+$('.player-progress').on('click',function(event){
+    var song=document.querySelector('audio');
+    var seek=$('.player-progress');
+    var song_seek=(event.pageX-event.target.offsetLeft)/seek[0].clientWidth;
+    $('.progress-filled').css("width", song_seek+"%");
+    song.currentTime=song.duration*song_seek;
+})
+
     
 window.onload= function(){ 
         song_list();
