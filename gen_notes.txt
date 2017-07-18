@@ -42,3 +42,13 @@ body{
 font-size: 16px;}
 then 2rem= 32px;
 roninamsterdam.com
+le-mugs.com
+transition-property css
+animation property
+@keyframes
+
+AJAX
+	XHR- XML HTTP Request(Written in Javascript to comminate with server)
+	API- Collection of URL to connect with servers
+	AJAX- Asynchronous JavaScript And XML (Written in jquery)
+HTTP Verbs - tells which action we want to perform 
