@@ -269,6 +269,10 @@ function dataRender(){
                 song.find('.song-artist').text(playList_name[j][i].artist);
                 song.find('.song-album').text(playList_name[j][i].album);
                 song.find('.song-length').text(playList_name[j][i].duration);
+
+                var card = $('.card'+(i+1));
+                card.find('img').attr('src', playList_name[j][i].albumArt);
+                card.find('div').text(playList_name[j][i].name);
                 addSongNameClickEvent(playList_name[j][i],i+1);
             }
             break;
@@ -288,7 +292,6 @@ function currentSongDetails(songObj){   //to display current song info
     $('.current-song-name').text(songObj.name);
     $('.current-song-album').text(songObj.album)
     currentSong=songObj.songNumber;
-    $('#totalSongs').text(songObj.songNumber+'/'+currentPlayList.length);
 }
 
 function timeJump(){
@@ -323,9 +326,15 @@ function changeSong(){
                     +'<td class="song-artist"></td>'
                     +'<td class="song-album"></td>'
                     +'<td class="song-length"></td>'
-                    +'</tr>')
+                    +'</tr>');
+
+            var featCard = $('<div class="featCard card'+ (i+1) +'">'
+                            +'<img src=" " width="160px" height="160px">'
+                            +'<div></div>'
+                            +'</div>');
 
             $('.song-list').append(song_id);
+            $('.featWrapper').append(featCard);
         }
     }
 //Toggle between Mute and Volume On

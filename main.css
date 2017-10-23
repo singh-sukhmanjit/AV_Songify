@@ -6,7 +6,6 @@
 
 html,
 body {
-    font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
     height: 100%;
     width: 100%;
     border: 0;
@@ -22,7 +21,7 @@ h1 {
 .wrapper {
     height: 100%;
     width: 100%;
-    background-color: #BBB;
+    background: linear-gradient(rgb(33, 76, 120), rgb(3, 7, 12) 85%);
     display: flex;
 }
 
@@ -41,62 +40,59 @@ h1 {
 }
 
 .main {
-    width: 80%;
-    height: 100%;
+    width: 83%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     color: white;
-    background-color: #1f1f1f;
 }
 
 #playList{
-    width: 20%;
-    height: 100%;
-    background-color: grey;
-    border-right: 1px solid #000;
-
-}
-
-#playList h3{
-    background-color: #08d957;
-    margin:10px;
-    margin-top: 30px;
-    padding: 5px;
-    border-radius: 5px;
-    text-align: center;
+    width: 17%;
+    height: 100vh;
+    background-color: rgba(0,0,0,.5);
+    overflow: auto;
 }
 
 #songList{
     list-style: none;
-    margin-left: 0;
-    padding:20px;
-    text-align: center; 
+    margin-top: 30px;
 }
 
 #songList li{
     cursor: pointer;
-    margin: 15px;
-    padding: 10px;
-    background-color: #282828;
-    border-radius: 5px;
-    color: #fff;
+    display: block;
+    margin: 15px 0;
+    color: hsla(0,0%,100%,.6);
+    font-size: 16px;
+    font-weight: 600;
 }
 
-.main header {
-    height: 80px;
-    background-color: #282828;
-    padding: 1rem;
-    color: #FFF;
+#songList li:nth-child(5){
+  position: absolute;
+  bottom: 0;
+}
+
+.header{
+  margin-top: 20px;
+  font-size: 20px;
+  color: #fff;
+  font-weight: 400;
+  text-align: center;
+}
+
+.header hr{
+  width: 80%;
 }
 
 .main .content {
     flex:1;
-    background-color: #1f1f1f;
+
 }
 
 .main footer {
-    height: 80px;
-    background-color: #282828;
+    height: 15vh;
+    background-color: #181818;
     padding-top: 1rem;
 }
 
@@ -124,7 +120,7 @@ h1 {
 }
 
 #vol_slider {
-    height: 8px;
+    height: 4px;
     width: 100px;
     background-color: #3d3d3d;
     border-radius: 4px;
@@ -133,11 +129,11 @@ h1 {
 }
 
 #vol_filled {
-    height: 8px;
+    height: 4px;
     border-radius: 4px;
     width: 0;
     background-color: #959595;
-    
+
 
 }
 
@@ -153,7 +149,7 @@ h1 {
 }
 
 .player-progress {
-    height: 8px;
+    height: 4px;
     width: 700px;
     background-color: #3d3d3d;
     border-radius: 4px;
@@ -164,7 +160,7 @@ h1 {
 
 .progress-filled {
     background-color: #959595;
-    height: 8px;
+    height: 4px;
     border-radius: 4px;
     width: 0;
 
@@ -172,7 +168,6 @@ h1 {
 
 .main .content {
     width: 100%;
-    margin: 2rem auto;
 }
 
 .list-headers {
@@ -245,24 +240,42 @@ h1 {
     position: absolute;
     bottom: 0;
     display: flex;
-    padding-left: 147px;
 }
 
 .current-song-image {
-    height: 100px;
-    width: 100px;
-    margin-right: 1rem;
-    border:1px solid #000;
+    height: 80px;
+    width: 80px;
+    margin: 5px;
+    border:none;
 }
 
 .current-song-name {
-    font-size: 1.4rem;
-    margin-top: 4px;
-    margin-bottom: 0;
+  margin-top: 20px;
+  font-weight: bold;
+  color: #f4f4f4;
+  font-size: 12px;
 }
 
 .current-song-album {
-    margin-top: 0.4rem;
+  font-weight: bold;
+  color: #f4f4f4;
+  font-size: 12px;
+}
+
+.controls{
+  float: right;
+  margin-right: 30px;
+}
+
+.featCard{
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.featCard div{
+  color: #fff;
+  font-size: 18px;
+  font-weight: 200;
 }
 
 /*DataTables overrides*/
@@ -305,7 +318,7 @@ table.dataTable tbody tr {
 
 #piano_wrapper{
 
-    
+
 }
 
 #piano{
@@ -331,7 +344,7 @@ table.dataTable tbody tr {
     width: 40px;
     border: 1px solid rgba(32,32,32,0.2);
     z-index: 1;
-    
+
 }
 
 .black{
