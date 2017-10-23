@@ -52,3 +52,7 @@ AJAX
 	API- Collection of URL to connect with servers
 	AJAX- Asynchronous JavaScript And XML (Written in jquery)
 HTTP Verbs - tells which action we want to perform 
+
+youmatter.accademiadelusso.com
+news.ycombinator.com
+standardresume.co

@@ -4,7 +4,7 @@ function toggleSong(){
     if (song.paused == true) {
         $('.play-icon').removeClass('fa-play').addClass('fa-pause');
         song.play();
-    } 
+    }
     else {
         $('.play-icon'  ).removeClass('fa-pause').addClass('fa-play');
         song.pause();
@@ -13,7 +13,7 @@ function toggleSong(){
 
 //Display time in format of m:ss eg 1:05
 function fancyTimeFormat(time)
-{   
+{
     // Hours, minutes and seconds
     var hrs = ~~(time / 3600);
     var mins = ~~((time % 3600) / 60);
@@ -49,8 +49,8 @@ function updateCurrTime(){
 function addSongNameClickEvent(songObj, number){
     $('#song'+number).click(function(){
     var audio=document.querySelector('audio');
-// Song is already playing on which it is clicked, so pause it        
-        if(audio.src.search(songObj.fileName)>=0){   
+// Song is already playing on which it is clicked, so pause it
+        if(audio.src.search(songObj.fileName)>=0){
             toggleSong();
         }
 //Song is different on which clicked, so change it
@@ -73,7 +73,7 @@ var willShuffle= 0; //Shuffle is off initially
 $('#songList1').on('click',function(){
     currentPlayList=playList_name[0];
     dataRender();
-  
+
 })
 
 $('#songList2').on('click',function(){
@@ -132,7 +132,7 @@ var songs=[
     }
 ]
 
-    
+
 //Array of songs of Dil playlist
 var dil=[
     {
@@ -256,7 +256,7 @@ var playList_name=[songs, dil, love, mahi_list] //variable contains list of all 
 var currentPlayList=playList_name[0];   //initially first playlist is selected
 
 //This fxn display data in Table
-function dataRender(){  
+function dataRender(){
     for(var j=0; j<4; j++){
         if(currentPlayList==playList_name[j]) {
             currentSongDetails(playList_name[j][0]);
@@ -284,7 +284,7 @@ function dataRender(){
 
 function currentSongDetails(songObj){   //to display current song info
     //attribute of song change krne ke liye
-    $('.current-song-image').attr('src', songObj.albumArt); 
+    $('.current-song-image').attr('src', songObj.albumArt);
     $('.current-song-name').text(songObj.name);
     $('.current-song-album').text(songObj.album)
     currentSong=songObj.songNumber;
@@ -302,14 +302,14 @@ function randomExcluded(min, max, excluded) {
     if (n >= excluded) n++;
     return n;
 }
-      
+
 function changeSong(){
     for(var j=0; j<4; j++){
         if(currentPlayList==playList_name[j]) {
             var song=document.querySelector('audio');
             song.src=playList_name[j][currentSong].fileName;
             toggleSong();
-            currentSongDetails(playList_name[j][currentSong]);            
+            currentSongDetails(playList_name[j][currentSong]);
         }
     }
 }
@@ -367,10 +367,10 @@ $('.player-progress').on('click',function(event){
     })
 
 
-    
-window.onload= function(){ 
+
+window.onload= function(){
         song_list();    // initially create HTML structure for Songs List
-    
+
       //initially first song and album ka name show hoga
         dataRender();
 
@@ -383,7 +383,7 @@ $('.welcome-screen button').on('click', function() {
     var name = $('#name-input').val();
     var email = $('#email-input').val();
     var pwd = $('#pwd-input').val();
-    if (name.length > 3) {  
+    if (name.length > 3) {
         if(email=='test@acadview.com' && pwd=='JavascriptRocks'){
             var message = "Welcome, " + name;
             $('.main .user-name').text(message);
@@ -403,19 +403,19 @@ $('.welcome-screen button').on('click', function() {
 });
 
     $('.play-icon').on('click', function() {
-        toggleSong()    
+        toggleSong();
         });
 
     $('body').on('keypress', function(event) {
         //'event' object ka target jiska tagName "INPUT" hai uspe event lgana
         if (event.keyCode == 32 && event.target.tagName!="INPUT") {
-            toggleSong() 
+            toggleSong();
         }
     });
 
     $('.fa-repeat').on('click', function(){
         //this matlab jo bhi selector selected hai usse phir se select karo
-        $(this).toggleClass('disabled');    
+        $(this).toggleClass('disabled');
         willLoop= 1 - willLoop;
     })
 
@@ -442,7 +442,7 @@ $('audio').on('ended', function(){
                 else{   // loop on hai and last song hai
                 song.src=playList_name[j][0].fileName; //first song ka source use kro
                 toggleSong();
-                currentSongDetails(playList_name[j][0]); 
+                currentSongDetails(playList_name[j][0]);
                 }
             }
             else{   //loop off hai
@@ -457,7 +457,7 @@ $('audio').on('ended', function(){
         }
     }
 })
-   
+
 //prev song using mouse
 $('.fa-step-forward').on('click', function(){
     var song = document.querySelector('audio');
@@ -473,11 +473,11 @@ $('.fa-step-forward').on('click', function(){
                 if(currentSong<playList_name[j].length){   //last song se pehle ke songs hai
                     changeSong();
                 }
-                else{   
+                else{
                 song.src=playList_name[j][0].fileName; //agr last song hai to first song chlega
                 toggleSong();
-                currentSongDetails(playList_name[j][0]); 
-                }  
+                currentSongDetails(playList_name[j][0]);
+                }
             }
         }
     }
@@ -499,11 +499,11 @@ $('body').on('keypress', function(event){
                     if(currentSong<playList_name[j].length){   //last song se pehle ke songs hai
                         changeSong();
                     }
-                    else{   
+                    else{
                     song.src=playList_name[j][0].fileName; //agr last song hai to first song chlega
                     toggleSong();
-                    currentSongDetails(playList_name[j][0]); 
-                    }  
+                    currentSongDetails(playList_name[j][0]);
+                    }
                 }
             }
         }
@@ -517,7 +517,7 @@ $('.fa-step-backward').on('click', function(){
         if(currentPlayList==playList_name[j]) {
             if(currentSong==1){ //agr first song hai to last song chlega
                 //agr currentSong=1 then songs[1] mtlb 2nd song, thats why currentSong=4-1=3 is songs[3]= lastsong
-                currentSong= playList_name[j].length - 1;  
+                currentSong= playList_name[j].length - 1;
                 changeSong();
             }
             else{
@@ -536,7 +536,7 @@ $('body').on('keypress', function(event){
                 var song = document.querySelector('audio');
                 if(currentSong==1){ //agr first song hai to last song chlega
                     //agr currentSong=1 then songs[1] mtlb 2nd song, thats why currentSong=4-1=3 is songs[3]= lastsong
-                    currentSong= playList_name[j].length - 1;  
+                    currentSong= playList_name[j].length - 1;
                     changeSong();
                 }
                 else{
