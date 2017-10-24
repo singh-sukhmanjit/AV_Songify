@@ -17,6 +17,32 @@ var init = function(){
 
   console.log('init');
   //To change song
+
+  function hideList(){
+
+    var a = $('#songs');
+    var cls = a.attr("class");
+    if(cls.search('hidden')<0){
+    //   $(a).removeClass('hidden');
+    //   $('.featWrapper').addClass('hidden');
+      // $('#songs').removeClass('hidden');
+      $(a).addClass('hidden');
+      $('.featWrapper').removeClass('hidden');
+    }
+  }
+  //
+  function hideCard(){
+    var a = $('.featWrapper');
+    var cls = a.attr("class");
+    if(cls.search('hidden')<0){
+    //   $(a).removeClass('hidden');
+    //   $('.featWrapper').addClass('hidden');
+      // $('#songs').removeClass('hidden');
+      $(a).addClass('hidden');
+      $('#songs').removeClass('hidden');
+    }
+  }
+
   function toggleSong(){
       var song = document.querySelector('audio');
       if (song.paused == true) {
@@ -104,18 +130,15 @@ var init = function(){
   //Similar with other songList click events
   $('#songList1').on('click',function(){
       currentPlayList=playList_name[0];
-      song_list();
       dataRender();
+      hideList();
 
   })
 
   $('#songList2').on('click',function(){
-      // $('.featCard').remove();
-      // $('.song').remove();
-
       currentPlayList=playList_name[1];
-
-       dataRender();
+      dataRender();
+      hideCard();
 
   })
 
@@ -177,23 +200,23 @@ var init = function(){
   function dataRender(){
     for(var j=0; j<4; j++){
           if(currentPlayList==playList_name[j]) {
-              currentSongDetails(playList_name[j][0]);
-              var audio=document.querySelector('audio');
-              audio.src=playList_name[j][0].fileName;
-              for(var i=0; i<playList_name[j].length; i++){
-                  var song= $('#song'+(i+1)); //select each song id
-                  song.find('.song-sr').text((i+1));
-                  song.find('.song-name').text(playList_name[j][i].name);  //look for .song-name inside each selector of class song-name
-                  song.find('.song-artist').text(playList_name[j][i].artist);
-                  song.find('.song-album').text(playList_name[j][i].album);
-                  song.find('.song-length').text(playList_name[j][i].duration);
+            currentSongDetails(playList_name[j][0]);
+            var audio=document.querySelector('audio');
+            audio.src=playList_name[j][0].fileName;
+            for(var i=0; i<playList_name[j].length; i++){
+                var song= $('#song'+(i+1)); //select each song id
+                song.find('.song-sr').text((i+1));
+                song.find('.song-name').text(playList_name[j][i].name);  //look for .song-name inside each selector of class song-name
+                song.find('.song-artist').text(playList_name[j][i].artist);
+                song.find('.song-album').text(playList_name[j][i].album);
+                song.find('.song-length').text(playList_name[j][i].duration);
 
-                  var card = $('.card'+(i+1));
-                  card.find('img').attr('src', playList_name[j][i].albumArt);
-                  card.find('div').text(playList_name[j][i].name);
-                  addSongNameClickEvent(playList_name[j][i],i+1);
-              }
-              break;
+                var card = $('.card'+(i+1));
+                card.find('img').attr('src', playList_name[j][i].albumArt);
+                card.find('div').text(playList_name[j][i].name);
+                addSongNameClickEvent(playList_name[j][i],i+1);
+            }
+            break;
           }
       }
 
@@ -300,10 +323,11 @@ var init = function(){
           song.volume=song_seek;
       })
 
-      song_list();    // initially create HTML structure for Songs List
-      card_list();
+
 
     //initially first song and album ka name show hoga
+      card_list();
+      song_list();
       dataRender();
 
       setInterval(function(){
