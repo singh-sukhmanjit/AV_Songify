@@ -1,0 +1,179 @@
+[33mcommit 6980c92cc00b41ad99284880c4bf765ab5645378[m
+Author: Sukhmanjit <singh.sukhmanjit@gmail.com>
+Date:   Tue Oct 24 11:06:21 2017 +0530
+
+    minor changes
+
+[33mcommit 7312a51fa72649bd46217faaab3bf58bdd3f46c9[m
+Author: Sukhmanjit <singh.sukhmanjit@gmail.com>
+Date:   Tue Oct 24 02:06:56 2017 +0530
+
+    Data of featPlayList retrieved from database
+
+[33mcommit 9d5eeff04c04c3e429ebbddfccb10aee56ebe127[m
+Author: Sukhmanjit <singh.sukhmanjit@gmail.com>
+Date:   Tue Oct 24 00:56:10 2017 +0530
+
+    interface updated
+
+[33mcommit 4ced669379e35be29d0cd89319417331e6681bf7[m
+Author: Sukhmanjit <singh.sukhmanjit@gmail.com>
+Date:   Mon Oct 23 23:34:43 2017 +0530
+
+    college project mod start
+
+[33mcommit 0066c22b93884abf7802c3992a26c2fa15ef909d[m
+Author: Sukhmanjit <singh.sukhmanjit@gmail.com>
+Date:   Tue Jul 18 17:11:27 2017 +0530
+
+    Main hidden
+
+[33mcommit 434a834e4c661a08710987d2dd93044f15026c2e[m
+Author: Sukhmanjit <singh.sukhmanjit@gmail.com>
+Date:   Wed Jul 12 20:30:37 2017 +0530
+
+    Comments Updated
+
+[33mcommit a79c7c69932f9e586d80074d8a2ac811948a488d[m
+Author: Sukhmanjit <singh.sukhmanjit@gmail.com>
+Date:   Wed Jul 12 19:25:19 2017 +0530
+
+    Volume slider done
+
+[33mcommit a02737d50b8bbc80d38757faf1786bfaf516fdd5[m
+Author: Sukhmanjit <singh.sukhmanjit@gmail.com>
+Date:   Wed Jul 12 16:45:54 2017 +0530
+
+    Seek Bar Complete
+
+[33mcommit aabc7aceddc18a1d849b41f36ed65b817b663434[m
+Author: Sukhmanjit <singh.sukhmanjit@gmail.com>
+Date:   Tue Jul 11 23:42:52 2017 +0530
+
+    Dil and Yaarian Playlists Added
+
+[33mcommit 9ad1a19adb20f2b96b1a4c6513e1606f4f8d11f4[m
+Author: Sukhmanjit <singh.sukhmanjit@gmail.com>
+Date:   Tue Jul 11 19:36:30 2017 +0530
+
+    Mute button and Welcome Screen Login
+
+[33mcommit 572d59c82b4fc036a9d3bd28728b440a9ae213b6[m
+Author: Sukhmanjit <singh.sukhmanjit@gmail.com>
+Date:   Tue Jul 11 15:36:54 2017 +0530
+
+    Mandatory Objectives Complete
+
+[33mcommit 5a5014548e9b36ae476f3fcaef82005df8fd9e18[m
+Author: Sukhmanjit <singh.sukhmanjit@gmail.com>
+Date:   Sun Jul 9 17:06:33 2017 +0530
+
+    Piano keys created using loop
+
+[33mcommit 485a049cb5ee7fe4585838634dfbc462ecc71257[m
+Author: Sukhmanjit <singh.sukhmanjit@gmail.com>
+Date:   Sat Jul 8 14:30:44 2017 +0530
+
+    Songs Table created using loop
+
+[33mcommit 51e0073829c0f8ea61f4957ec9bca018fb19b406[m
+Author: Sukhmanjit <singh.sukhmanjit@gmail.com>
+Date:   Sat Jul 8 03:46:35 2017 +0530
+
+    Default Playlist changed
+
+[33mcommit 6312a04d9cdcfe7326b69d1c8e7a3a3acf88344c[m
+Author: Sukhmanjit <singh.sukhmanjit@gmail.com>
+Date:   Sat Jul 8 03:36:39 2017 +0530
+
+    Playlist added
+
+[33mcommit fef3e1dcdba0ba846d4e54f7b47c0f0c7fa60f28[m
+Author: Sukhmanjit <singh.sukhmanjit@gmail.com>
+Date:   Fri Jul 7 13:42:12 2017 +0530
+
+    Minor bug resolved: Main hidden on click
+
+[33mcommit afc6841c7622155beb78429938e82a0a119654a7[m
+Author: Sukhmanjit <singh.sukhmanjit@gmail.com>
+Date:   Thu Jul 6 20:54:55 2017 +0530
+
+    Piano Complete (click bug), separate file for it
+
+[33mcommit 271b51c835078b28fff9ab56c839684077ac1f2e[m
+Author: Sukhmanjit <singh.sukhmanjit@gmail.com>
+Date:   Thu Jul 6 19:14:51 2017 +0530
+
+    Piano using functions, but with bug on click at label
+
+[33mcommit c4d652e86a17d564531b92770c84495ee1badb73[m
+Author: Sukhmanjit <singh.sukhmanjit@gmail.com>
+Date:   Thu Jul 6 14:00:03 2017 +0530
+
+    Piano Improved
+
+[33mcommit 07d9b875b8b4afd07459b45a46e518dfb8cc4f9d[m
+Author: Sukhmanjit <singh.sukhmanjit@gmail.com>
+Date:   Thu Jul 6 01:45:45 2017 +0530
+
+    PIANO added
+
+[33mcommit 85749ad24b50dd444056f792d928e55d7c0a01dc[m
+Author: Sukhmanjit <singh.sukhmanjit@gmail.com>
+Date:   Wed Jul 5 20:44:02 2017 +0530
+
+    Shuffle Button Complete
+
+[33mcommit f3a4cfc38ad50f0750518e3ee09ac9d650019c1e[m
+Author: Sukhmanjit <singh.sukhmanjit@gmail.com>
+Date:   Wed Jul 5 19:55:44 2017 +0530
+
+    Playing with Shuffle
+
+[33mcommit ef51f6a791ac5ad95760fc2a7f75cc12aafd320e[m
+Author: Sukhmanjit <singh.sukhmanjit@gmail.com>
+Date:   Wed Jul 5 13:59:44 2017 +0530
+
+    Next and Prev Song done along with keyEvents
+
+[33mcommit b47391ffbe49701145d580745bf898ef66ce29bf[m
+Author: Sukhmanjit <singh.sukhmanjit@gmail.com>
+Date:   Wed Jul 5 12:17:05 2017 +0530
+
+    Loop Song Done
+
+[33mcommit 8d84700df4a6a0dfba5745b9546c331e5d6fecf9[m
+Author: Sukhmanjit <singh.sukhmanjit@gmail.com>
+Date:   Wed Jul 5 11:59:56 2017 +0530
+
+    Next song plays when current song ends, looping not used
+
+[33mcommit ef39a64a5452fae59a26c41f52edd170cfc36cdf[m
+Author: Sukhmanjit <singh.sukhmanjit@gmail.com>
+Date:   Wed Jul 5 00:05:21 2017 +0530
+
+    Current Song Details & Search and Sort using DataTables
+
+[33mcommit 244cf1d626f1f5730ea284bc53a567d5ab97014f[m
+Author: Sukhmanjit <singh.sukhmanjit@gmail.com>
+Date:   Mon Jul 3 00:28:25 2017 +0530
+
+    Using objects and arrays to store Song Details
+
+[33mcommit b510bc4870b04854bfe5682e8a127d9cb713816d[m
+Author: Sukhmanjit <singh.sukhmanjit@gmail.com>
+Date:   Mon Jul 3 00:07:28 2017 +0530
+
+    Playlist Details Entered using for Loop
+
+[33mcommit 3e6c13d31f8ac5ac4521df6e8f3fe9fb80b4e2d1[m
+Author: Sukhmanjit <singh.sukhmanjit@gmail.com>
+Date:   Sun Jul 2 22:30:30 2017 +0530
+
+    Playlist Created
+
+[33mcommit 5c16815abd7bfd60af75df66b058c5d4da951c4d[m
+Author: Sukhmanjit <singh.sukhmanjit@gmail.com>
+Date:   Sun Jul 2 17:00:05 2017 +0530
+
+    First Commit: Spacebar Play/Pause, Progress Bar

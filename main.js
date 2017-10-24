@@ -104,15 +104,18 @@ var init = function(){
   //Similar with other songList click events
   $('#songList1').on('click',function(){
       currentPlayList=playList_name[0];
+      song_list();
       dataRender();
 
   })
 
   $('#songList2').on('click',function(){
+      // $('.featCard').remove();
+      // $('.song').remove();
 
       currentPlayList=playList_name[1];
 
-      // dataRender();
+       dataRender();
 
   })
 
@@ -172,7 +175,7 @@ var init = function(){
 
   //This fxn display data in Table
   function dataRender(){
-      for(var j=0; j<4; j++){
+    for(var j=0; j<4; j++){
           if(currentPlayList==playList_name[j]) {
               currentSongDetails(playList_name[j][0]);
               var audio=document.querySelector('audio');
@@ -193,6 +196,7 @@ var init = function(){
               break;
           }
       }
+
 
       //Search and Sort Plugin
       $('#songs').DataTable({
@@ -243,12 +247,18 @@ var init = function(){
                       +'<td class="song-length"></td>'
                       +'</tr>');
 
+              $('.song-list').append(song_id);
+
+          }
+      }
+
+      function card_list(){
+          for(var i=0; i<4;i++){
               var featCard = $('<div class="featCard card'+ (i+1) +'">'
                               +'<img src=" " width="160px" height="160px">'
                               +'<div></div>'
                               +'</div>');
 
-              $('.song-list').append(song_id);
               $('.featWrapper').append(featCard);
           }
       }
@@ -291,6 +301,7 @@ var init = function(){
       })
 
       song_list();    // initially create HTML structure for Songs List
+      card_list();
 
     //initially first song and album ka name show hoga
       dataRender();
