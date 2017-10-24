@@ -13,6 +13,79 @@ body {
     font-size: 16px;
 }
 
+a{
+  text-decoration: none !important;
+}
+
+#mainHeader{
+  height: 110px;
+  text-align: center;
+  border-bottom: 1px solid #D9DADC;
+}
+
+.btnHeading{
+  margin-bottom: 50px;
+  width: 100%;
+  border-radius: 500px;
+  background-color: #3b5998;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: default;
+}
+
+.btnHeading:hover{
+  background-color: #3b5998;
+  color: #ffffff;
+}
+
+#loginForm{
+  margin-top: 50px;
+  }
+
+#loginForm input{
+  border-radius: 0;
+}
+
+#check{
+  font-size: 20px;
+  font-weight: 400;
+  color:#919496;
+}
+
+input[type=checkbox]:checked{
+  background-color: red !important;
+}
+
+/*.checkbox label input[type=checkbox]:checked{
+  background-color: red !important;
+}*/
+
+#loginForm button{
+  padding: 11px 32px 9px;
+  border-radius: 500px;
+  width: 100%;
+  font-weight: bold;
+  font-size: 14px;
+  height: 40px;
+}
+
+form{
+  margin-bottom: 50px;
+}
+.pEdit{
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.loginForm input.ng-dirty.ng-invalid{
+  border: 1px solid #d43f3a;
+}
+
+.loginForm input.ng-dirty.ng-valid{
+  border: 1px solid #4cae4c;
+}
+
 h1 {
     border: 0;
     margin: 0;

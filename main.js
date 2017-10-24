@@ -18,9 +18,10 @@ var init = function(){
   console.log('init');
   //To change song
 
-  function hideList(){
+  function showCard(){
 
     var a = $('#songs');
+    var b = $('.dataTables_filter');
     var cls = a.attr("class");
     if(cls.search('hidden')<0){
     //   $(a).removeClass('hidden');
@@ -28,18 +29,18 @@ var init = function(){
       // $('#songs').removeClass('hidden');
       $(a).addClass('hidden');
       $('.featWrapper').removeClass('hidden');
+      $(b).addClass('hidden');
     }
   }
   //
-  function hideCard(){
+  function showList(){
     var a = $('.featWrapper');
+    var b = $('.dataTables_filter');
     var cls = a.attr("class");
     if(cls.search('hidden')<0){
-    //   $(a).removeClass('hidden');
-    //   $('.featWrapper').addClass('hidden');
-      // $('#songs').removeClass('hidden');
       $(a).addClass('hidden');
       $('#songs').removeClass('hidden');
+      $(b).removeClass('hidden');
     }
   }
 
@@ -131,14 +132,14 @@ var init = function(){
   $('#songList1').on('click',function(){
       currentPlayList=playList_name[0];
       dataRender();
-      hideList();
+      showCard();
 
   })
 
   $('#songList2').on('click',function(){
       currentPlayList=playList_name[1];
       dataRender();
-      hideCard();
+      showList();
 
   })
 
@@ -329,6 +330,7 @@ var init = function(){
       card_list();
       song_list();
       dataRender();
+      $('.dataTables_filter').addClass('hidden');
 
       setInterval(function(){
           updateCurrTime();
