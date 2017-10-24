@@ -15,32 +15,37 @@ $.ajax({
 
 var init = function(){
 
+  var fx = setInterval(function(){
+    var z = $('#urlFile')[0].files[0].name;
+    console.log(z);
+  },1000);
+
   console.log('init');
   //To change song
 
-  function showCard(){
+  var pList = 0;
+  function showCard(pL){
 
-    var a = $('#songs');
-    var b = $('.dataTables_filter');
-    var cls = a.attr("class");
-    if(cls.search('hidden')<0){
-    //   $(a).removeClass('hidden');
-    //   $('.featWrapper').addClass('hidden');
-      // $('#songs').removeClass('hidden');
+    if(pL==1){
+      console.log('a');
+      var a = $('#songs');
+      var b = $('.dataTables_filter');
+      var c = $('.featWrapper');
       $(a).addClass('hidden');
-      $('.featWrapper').removeClass('hidden');
       $(b).addClass('hidden');
+      $(c).removeClass('hidden');
     }
   }
   //
-  function showList(){
-    var a = $('.featWrapper');
-    var b = $('.dataTables_filter');
-    var cls = a.attr("class");
-    if(cls.search('hidden')<0){
+  function showList(pL){
+    if(pL==0){
+      console.log('b');
+      var a = $('.featWrapper');
+      var b = $('.dataTables_filter');
+      var c = $('#songs');
       $(a).addClass('hidden');
-      $('#songs').removeClass('hidden');
       $(b).removeClass('hidden');
+      $(c).removeClass('hidden');
     }
   }
 
@@ -131,15 +136,20 @@ var init = function(){
   //Similar with other songList click events
   $('#songList1').on('click',function(){
       currentPlayList=playList_name[0];
+      console.log(pList);
       dataRender();
-      showCard();
+      showCard(pList);
+      pList = 0;
 
   })
 
   $('#songList2').on('click',function(){
       currentPlayList=playList_name[1];
+      console.log(pList);
       dataRender();
-      showList();
+      showList(pList);
+      pList = 1;
+
 
   })
 
@@ -199,7 +209,7 @@ var init = function(){
 
   //This fxn display data in Table
   function dataRender(){
-    for(var j=0; j<4; j++){
+    for(var j=0; j<2; j++){
           if(currentPlayList==playList_name[j]) {
             currentSongDetails(playList_name[j][0]);
             var audio=document.querySelector('audio');
@@ -250,7 +260,7 @@ var init = function(){
   }
 
   function changeSong(){
-      for(var j=0; j<4; j++){
+      for(var j=0; j<2; j++){
           if(currentPlayList==playList_name[j]) {
               var song=document.querySelector('audio');
               song.src=playList_name[j][currentSong].fileName;
@@ -385,7 +395,7 @@ var init = function(){
       //after song ends it check for shuffle on, loop on, loop off
   $('audio').on('ended', function(){
       var song=document.querySelector('audio');
-      for(var j=0; j<4; j++){
+      for(var j=0; j<2; j++){
           if(currentPlayList==playList_name[j]) {
               if(willShuffle==1){
                   currentSong= randomExcluded(1, playList_name[j].length, currentSong);
@@ -419,7 +429,7 @@ var init = function(){
   //prev song using mouse
   $('.fa-step-forward').on('click', function(){
       var song = document.querySelector('audio');
-      for(var j=0; j<4; j++){
+      for(var j=0; j<2; j++){
           if(currentPlayList==playList_name[j]) {
               if(willShuffle==1){
                   currentSong= randomExcluded(1, playList_name[j].length, currentSong);
@@ -443,7 +453,7 @@ var init = function(){
 
   //next song using 'n' on keyboard
   $('body').on('keypress', function(event){
-      for(var j=0; j<4; j++){
+      for(var j=0; j<2; j++){
           if(currentPlayList==playList_name[j]) {
               if(event.key == "n" && event.target.tagName!=="INPUT"){
                   var song = document.querySelector('audio');
@@ -471,7 +481,7 @@ var init = function(){
   //prev song using mouse
   $('.fa-step-backward').on('click', function(){
       var song = document.querySelector('audio');
-      for(var j=0; j<4; j++){
+      for(var j=0; j<2; j++){
           if(currentPlayList==playList_name[j]) {
               if(currentSong==1){ //agr first song hai to last song chlega
                   //agr currentSong=1 then songs[1] mtlb 2nd song, thats why currentSong=4-1=3 is songs[3]= lastsong
@@ -488,7 +498,7 @@ var init = function(){
 
   //prev song using 'p' on keyboard
   $('body').on('keypress', function(event){
-      for(var j=0; j<4; j++){
+      for(var j=0; j<2; j++){
           if(currentPlayList==playList_name[j]) {
               if(event.key == "p" && event.target.tagName!=="INPUT"){
                   var song = document.querySelector('audio');

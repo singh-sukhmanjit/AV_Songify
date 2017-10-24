@@ -141,7 +141,11 @@ h1 {
     font-weight: 600;
 }
 
-#songList li:nth-child(5){
+#songList li a{
+  color: inherit;
+}
+
+#songList li:nth-child(6){
   position: absolute;
   bottom: 0;
 }

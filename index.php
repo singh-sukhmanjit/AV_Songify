@@ -11,6 +11,38 @@
 </head>
 
 <body>
+  <?php
+    $host="localhost";
+    $user="root";
+    $pass="password";
+    $db="songify";
+    $conn=mysqli_connect($host,$user,$pass,$db);
+
+    $name = $artist = $album = $duration = $songUrl = $albumArt = "";
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+      $name = $_POST["name"];
+      $artist = $_POST["artist"];
+      $album = $_POST["album"];
+      $duration = $_POST["duration"];
+      $songUrl = $_POST["fileName"];
+      $albumArt = $_POST["albumArt"];
+      $query=$conn->query("INSERT INTO `usersongs` (`name`,`artist`,`album`,`duration`,`fileName`,`albumArt`) VALUES ('$name','$artist','$album','$duration','$songUrl','$albumArt')");
+      if($query)
+      {
+        header("location:index.php");
+      }
+      else
+      {
+        echo "no";
+        echo mysqli_error("$conn");
+
+      }
+    }
+
+  ?>
+
+
     <div class="wrapper">
         <section class="welcome-screen hidden">
             <h1> Welcome to Songify </h1>
@@ -31,8 +63,61 @@
                 <li>Logo</li><hr>
                 <li id="songList1">Home</li>
                 <li id="songList2">Your Music</li>
+                <li><a data-toggle="modal" data-target="#myModal">Add Songs</a></li>
                 <li><hr>Sukhman Sandhu</li>
             </ul>
+        </div>
+        <!-- Button trigger modal -->
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+              </div>
+              <div class="modal-body">
+                <form name="addSong" class="form-horizontal" method="POST" action="">
+                  <div class="form-group">
+                    <div class="col-sm-12">
+                      <input name="name" type="text" class="form-control" placeholder="Song Name">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-12">
+                      <input name="artist" type="text" class="form-control" placeholder="Artist Name">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-12">
+                      <input name="album" type="text" class="form-control" placeholder="Album Name">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-12">
+                      <input name="duration" type="text" class="form-control" placeholder="Duration">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-12">
+                      <input id="urlFile" name="fileName" type="file" class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-12">
+                      <input name="albumArt" type="text" class="form-control" placeholder="Album Art Url">
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" form="addSong" class="btn btn-primary" value="Save Changes">Save Changes</button>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="main">
           <div class="header">
