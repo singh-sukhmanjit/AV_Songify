@@ -9,19 +9,26 @@
 	    <link rel="stylesheet" type="text/css" href="main.css">
 	</head>
 
-	<body>
+	<body id="pianoBody">
 		<div id="piano_wrapper" class="">
-            <div id="instrument">
-                <h4 id="keyboard">Keyboard</h4>
-                <h4 id="organ">Organ</h4>
-                <h4 id="guitar">Acoustic Guitar</h4>
-                <h4 id="edm">EDM</h4>
-            </div>
-            <div id="piano">
-            
-            </div>
+
+						<div id="pianoBox">
+							<ul id="instrument">
+								<li><a href="index.php"><i class="fa fa-chevron-left" aria-hidden="true"></i></a></li>
+                <li id="keyboard">Keyboard</li>
+                <li id="organ">Organ</li>
+                <li id="guitar">Acoustic Guitar</li>
+                <li id="edm">EDM</li>
+	            </ul>
+							<div id="piano-container">
+								<span id="instName">Keyboard</span>
+		            <div id="piano">
+
+		            </div>
+							</div>
+						</div>
         </div>
-		
+
 		<script src="jquery-3.2.1.js"></script>
 	    <script src="audiosynth.js"></script>
 	    <script src="piano.js"></script>

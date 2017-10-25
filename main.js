@@ -1,17 +1,42 @@
 var featSongs = [];
-$.ajax({
-        'type': 'POST',
-        'url': 'featSongScript.php',
-        success: function (response) {
-          featSongs = JSON.parse(response);
-          console.log(featSongs);
-          init();
+var userSongs = [];
+var totalPlaylist = 2;
 
-        },
-        error: function (xhr) {
-          console.log(response.data,response.status);
-        }
-    })
+
+var cardListAjax = function(){
+  $.ajax({
+          'type': 'POST',
+          'url': 'featSongScript.php',
+          success: function (response) {
+            featSongs = JSON.parse(response);
+            console.log(featSongs);
+            songListAjax();
+
+          },
+          error: function (xhr) {
+            console.log(response.data,response.status);
+          }
+      })
+}
+
+cardListAjax();
+
+var songListAjax = function(){
+  $.ajax({
+          'type': 'POST',
+          'url': 'songListScript.php',
+          success: function (response) {
+            userSongs = JSON.parse(response);
+            console.log(userSongs);
+            init();
+
+          },
+          error: function (xhr) {
+            console.log(response.data,response.status);
+          }
+      })
+}
+
 
 var init = function(){
 
@@ -153,63 +178,61 @@ var init = function(){
 
   })
 
-  // $('#songList3').on('click',function(){
-  //     currentPlayList=playList_name[2];
-  //     dataRender();
-  // })
-  //
-  // $('#songList4').on('click',function(){
-  //     currentPlayList=playList_name[3];
-  //     dataRender();
-  // })
-
-
   //Array of songs of Dil playlist
-  var dil=[
-      {
-          'name': 'FADED',
-          'artist': 'ALAN WALKER',
-          'album': 'Single',
-          'duration': '3:32',
-          'fileName': 'http://www.songlover.club/download2.php?filep=glory-data/downloadfile/41905/Faded_(Alan_Walker)(www.englishsong.in).mp3',
-          'albumArt': 'http://artimg.songfacts.com/5880fe1b7d051517ce6fd95ffe2caa67-lg.png',
-          'songNumber': 1
-      },
-      {
-          'name': 'Kya Hua Tera Wada',
-          'artist': 'Mohd Rafi',
-          'album': 'Yaadon Ki Baaraat',
-          'duration': '4:24',
-          'fileName': 'https://dl.jatt.link/cdn1.jatt.link/405c66093a2c6c809ecc82301d7bb017/bzpkv/Kya%20Hua%20Tera%20Wada-(Mr-Jatt.com).mp3',
-          'albumArt': 'https://static.jatt.link/thumbs/100_100/oueei.jpg',
-          'songNumber': 2
-      },
-      {
-          'name': 'Atrangi Yaari',
-          'artist': 'Amitabh Bachchan , Farhan Akhtar',
-          'album': 'Wazir',
-          'duration': '3:37',
-          'fileName': 'https://dl.jatt.link/cdn7.jatt.link/663273022e614292ed96b638ac63bde5/qlvmv/Atrangi%20Yaari-(Mr-Jatt.com).mp3',
-          'albumArt': 'https://upload.wikimedia.org/wikipedia/en/thumb/d/db/Wazir_Poster.jpeg/220px-Wazir_Poster.jpeg',
-          'songNumber': 3
-      },
-      {
-          'name': 'Mere Mehboob Qayamat Hogi',
-          'artist': 'Kishore Kumar',
-          'album': 'Mr. X In Bombay',
-          'duration': '3:52',
-          'fileName': 'https://dl.jatt.link/cdn5.jatt.link/418462d9b466220641dd27a2dfd4cfb4/mscjv/Mere%20Mehboob%20Qayamat%20Hogi-(Mr-Jatt.com).mp3',
-          'albumArt': 'http://33.webmusic.pw/33l7F/music/hindi/movies/1964/m/mr_x_in_bombay/img.jpg',
-          'songNumber': 4
-      }
-  ]
+  // var userSongs=[
+  //     {
+  //         'name': 'FADED',
+  //         'artist': 'ALAN WALKER',
+  //         'album': 'Single',
+  //         'duration': '3:32',
+  //         'fileName': 'http://www.songlover.club/download2.php?filep=glory-data/downloadfile/41905/Faded_(Alan_Walker)(www.englishsong.in).mp3',
+  //         'albumArt': 'http://artimg.songfacts.com/5880fe1b7d051517ce6fd95ffe2caa67-lg.png',
+  //         'songNumber': 1
+  //     },
+  //     {
+  //         'name': 'Kya Hua Tera Wada',
+  //         'artist': 'Mohd Rafi',
+  //         'album': 'Yaadon Ki Baaraat',
+  //         'duration': '4:24',
+  //         'fileName': 'https://dl.jatt.link/cdn1.jatt.link/405c66093a2c6c809ecc82301d7bb017/bzpkv/Kya%20Hua%20Tera%20Wada-(Mr-Jatt.com).mp3',
+  //         'albumArt': 'https://static.jatt.link/thumbs/100_100/oueei.jpg',
+  //         'songNumber': 2
+  //     },
+  //     {
+  //         'name': 'Atrangi Yaari',
+  //         'artist': 'Amitabh Bachchan , Farhan Akhtar',
+  //         'album': 'Wazir',
+  //         'duration': '3:37',
+  //         'fileName': 'https://dl.jatt.link/cdn7.jatt.link/663273022e614292ed96b638ac63bde5/qlvmv/Atrangi%20Yaari-(Mr-Jatt.com).mp3',
+  //         'albumArt': 'https://upload.wikimedia.org/wikipedia/en/thumb/d/db/Wazir_Poster.jpeg/220px-Wazir_Poster.jpeg',
+  //         'songNumber': 3
+  //     },
+  //     {
+  //         'name': 'Mere Mehboob Qayamat Hogi',
+  //         'artist': 'Kishore Kumar',
+  //         'album': 'Mr. X In Bombay',
+  //         'duration': '3:52',
+  //         'fileName': 'https://dl.jatt.link/cdn5.jatt.link/418462d9b466220641dd27a2dfd4cfb4/mscjv/Mere%20Mehboob%20Qayamat%20Hogi-(Mr-Jatt.com).mp3',
+  //         'albumArt': 'http://33.webmusic.pw/33l7F/music/hindi/movies/1964/m/mr_x_in_bombay/img.jpg',
+  //         'songNumber': 4
+  //     },
+  //     {
+  //         'name': 'Atrangi Yaari',
+  //         'artist': 'Amitabh Bachchan , Farhan Akhtar',
+  //         'album': 'Wazir',
+  //         'duration': '3:37',
+  //         'fileName': 'https://dl.jatt.link/cdn7.jatt.link/663273022e614292ed96b638ac63bde5/qlvmv/Atrangi%20Yaari-(Mr-Jatt.com).mp3',
+  //         'albumArt': 'https://upload.wikimedia.org/wikipedia/en/thumb/d/db/Wazir_Poster.jpeg/220px-Wazir_Poster.jpeg',
+  //         'songNumber': 5
+  //     }
+  // ]
 
-  var playList_name=[featSongs, dil] //variable contains list of all playlists
+  var playList_name=[featSongs, userSongs] //variable contains list of all playlists
   var currentPlayList=playList_name[0];   //initially first playlist is selected
 
   //This fxn display data in Table
   function dataRender(){
-    for(var j=0; j<2; j++){
+    for(var j=0; j<totalPlaylist; j++){
           if(currentPlayList==playList_name[j]) {
             currentSongDetails(playList_name[j][0]);
             var audio=document.querySelector('audio');
@@ -260,7 +283,7 @@ var init = function(){
   }
 
   function changeSong(){
-      for(var j=0; j<2; j++){
+      for(var j=0; j<totalPlaylist; j++){
           if(currentPlayList==playList_name[j]) {
               var song=document.querySelector('audio');
               song.src=playList_name[j][currentSong].fileName;
@@ -272,7 +295,7 @@ var init = function(){
 
   //Create HTML structure for Songs in Table
       function song_list(){
-          for(var i=0; i<4;i++){
+          for(var i=0; i<playList_name[1].length;i++){
               var song_id=$('<tr class="song" id="song'+(i+1)+'">'
                       +'<td class="song-sr"></td>'
                       +'<td class="song-name"></td>'
@@ -287,7 +310,7 @@ var init = function(){
       }
 
       function card_list(){
-          for(var i=0; i<4;i++){
+          for(var i=0; i<playList_name[0].length;i++){
               var featCard = $('<div class="featCard card'+ (i+1) +'">'
                               +'<img src=" " width="160px" height="160px">'
                               +'<div></div>'
@@ -395,7 +418,7 @@ var init = function(){
       //after song ends it check for shuffle on, loop on, loop off
   $('audio').on('ended', function(){
       var song=document.querySelector('audio');
-      for(var j=0; j<2; j++){
+      for(var j=0; j<totalPlaylist; j++){
           if(currentPlayList==playList_name[j]) {
               if(willShuffle==1){
                   currentSong= randomExcluded(1, playList_name[j].length, currentSong);
@@ -429,7 +452,7 @@ var init = function(){
   //prev song using mouse
   $('.fa-step-forward').on('click', function(){
       var song = document.querySelector('audio');
-      for(var j=0; j<2; j++){
+      for(var j=0; j<totalPlaylist; j++){
           if(currentPlayList==playList_name[j]) {
               if(willShuffle==1){
                   currentSong= randomExcluded(1, playList_name[j].length, currentSong);
@@ -453,7 +476,7 @@ var init = function(){
 
   //next song using 'n' on keyboard
   $('body').on('keypress', function(event){
-      for(var j=0; j<2; j++){
+      for(var j=0; j<totalPlaylist; j++){
           if(currentPlayList==playList_name[j]) {
               if(event.key == "n" && event.target.tagName!=="INPUT"){
                   var song = document.querySelector('audio');
@@ -481,7 +504,7 @@ var init = function(){
   //prev song using mouse
   $('.fa-step-backward').on('click', function(){
       var song = document.querySelector('audio');
-      for(var j=0; j<2; j++){
+      for(var j=0; j<totalPlaylist; j++){
           if(currentPlayList==playList_name[j]) {
               if(currentSong==1){ //agr first song hai to last song chlega
                   //agr currentSong=1 then songs[1] mtlb 2nd song, thats why currentSong=4-1=3 is songs[3]= lastsong
@@ -498,7 +521,7 @@ var init = function(){
 
   //prev song using 'p' on keyboard
   $('body').on('keypress', function(event){
-      for(var j=0; j<2; j++){
+      for(var j=0; j<totalPlaylist; j++){
           if(currentPlayList==playList_name[j]) {
               if(event.key == "p" && event.target.tagName!=="INPUT"){
                   var song = document.querySelector('audio');

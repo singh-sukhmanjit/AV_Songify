@@ -1,18 +1,22 @@
 var instrument=0;	//initially set id=0, eh piano di hai
 $('#keyboard').on('click', function(){
     instrument=0;
+    $('#instName').text('Keyboard');
 })
 
 $('#organ').on('click', function(){
     instrument=1;	//instrument = organ
+    $('#instName').text('Organ');
 })
 
 $('#guitar').on('click', function(){
     instrument=2;	//instrument = acoustic guitar
+    $('#instName').text('Acoustic Guitar');
 })
 
 $('#edm').on('click', function(){
     instrument=3;	//instrument = edm
+    $('#instName').text('EDM');
 })
 
 //array of objects of note and octave, click or keyboard event isko trigger krke note and octave ki value se sound play krega
@@ -28,7 +32,7 @@ var music=[
         {'note': 'G#', 'octave':'3'},{'note': 'A#', 'octave':'3'},{'note': 'C#', 'octave':'4'},
         {'note': 'D#', 'octave':'4'},{'note': 'F#', 'octave':'4'},{'note': 'G#', 'octave':'4'},
         {'note': 'A#', 'octave':'4'},{'note': 'C#', 'octave':'5'},{'note': 'D#', 'octave':'5'},
-        {'note': 'F#', 'octave':'5'},{'note': 'G#', 'octave':'5'},{'note': 'A#', 'octave':'5'}        
+        {'note': 'F#', 'octave':'5'},{'note': 'G#', 'octave':'5'},{'note': 'A#', 'octave':'5'}
 ]
 
 //jab pressed() trigger hoga vo es array ki help se id select krega jisse blink krvana
@@ -46,17 +50,17 @@ var key_id=['q','w','e','r','t','y','u','i','o','p','[',']',
 
 //to play sound using click event
 $('body').on('click', function(event){
-    var id =event.target.id;	//jis button pe click kiya uski 'div id' variable me store hoggi 
+    var id =event.target.id;	//jis button pe click kiya uski 'div id' variable me store hoggi
     for(var i=0; i<music.length; i++){
-        if(music_id[i]==id){	//music_id array se check krega k 'div id' valid hai k nahi 
+        if(music_id[i]==id){	//music_id array se check krega k 'div id' valid hai k nahi
             break;	//aggr valid hui 'id' toh break ki help se 'i' ki value pta lg jayegi
         }
-        
+
     }
     // 'i' ki value use krke arrays me se note and octave ki value select krni hai
-    Synth.play(instrument, music[i].note, music[i].octave, 2);	
+    Synth.play(instrument, music[i].note, music[i].octave, 2);
     pressed(i);	//'i' ki value use krke find kro konse button ko blink krna hai
-    
+
 })
 
 $('body').on('keypress', function(event){
@@ -83,10 +87,10 @@ function white_keys(){
                'C','V','B','N','M',',','.'
                ];
     for(var i=0; i<keys.length; i++){
-        var id='#w'+(i+1);	//eg if i=0, id=w1 
+        var id='#w'+(i+1);	//eg if i=0, id=w1
         $(id).find('.keyHead').text(press[i]);
         $(id).find('.keyFoot').text(keys[i]);
-    }    
+    }
 }
 
 function black_keys(){
@@ -101,16 +105,25 @@ function black_keys(){
         $(id).find('.keyHead').text(press[i]);
         $(id).find('.keyFoot').text(keys[i]);
 
-    }    
+    }
 }
 
 //when key press hoga, us key ko blink krne ke liye
 function pressed(i){
-    $('#'+music_id[i]).addClass('pressed');
-        setTimeout(function(){
-            $('#'+music_id[i]).removeClass('pressed');
-        },200);
-
+    var a = $('#'+music_id[i]);
+    var b = a[0].classList.value;
+    if(b.search('white') >= 0){
+      a.addClass('whitePressed');
+      setTimeout(function(){
+        a.removeClass('whitePressed');
+      },200);
+    }
+    else{
+      a.addClass('blackPressed');
+      setTimeout(function(){
+          a.removeClass('blackPressed');
+      },200);
+    }
 }
 
 

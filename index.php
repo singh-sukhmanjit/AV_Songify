@@ -25,9 +25,9 @@
       $artist = $_POST["artist"];
       $album = $_POST["album"];
       $duration = $_POST["duration"];
-      $songUrl = $_POST["fileName"];
-      $albumArt = $_POST["albumArt"];
-      $query=$conn->query("INSERT INTO `usersongs` (`name`,`artist`,`album`,`duration`,`fileName`,`albumArt`) VALUES ('$name','$artist','$album','$duration','$songUrl','$albumArt')");
+      $fileName = 'songs/'.$_POST["fileName"];
+      $albumArt = 'img/'.$_POST["albumArt"];
+      $query=$conn->query("INSERT INTO `usersongs` (`name`,`artist`,`album`,`duration`,`fileName`,`albumArt`) VALUES ('$name','$artist','$album','$duration','$fileName','$albumArt')");
       if($query)
       {
         header("location:index.php");
@@ -60,7 +60,7 @@
 
         <div id="playList" class="">
             <ul id="songList">
-                <li>Logo</li><hr>
+                <li><i class="fa fa-music fa-3x" aria-hidden="true"></i></li><hr>
                 <li id="songList1">Home</li>
                 <li id="songList2">Your Music</li>
                 <li><a data-toggle="modal" data-target="#myModal">Add Songs</a></li>
@@ -76,45 +76,50 @@
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                <h4 class="modal-title" id="myModalLabel">Add Songs</h4>
               </div>
               <div class="modal-body">
-                <form name="addSong" class="form-horizontal" method="POST" action="">
+                <form name="addSong" class="form-horizontal" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                   <div class="form-group">
                     <div class="col-sm-12">
-                      <input name="name" type="text" class="form-control" placeholder="Song Name">
+                      <input name="name" type="text" class="form-control" placeholder="Song Name" required="">
                     </div>
                   </div>
                   <div class="form-group">
                     <div class="col-sm-12">
-                      <input name="artist" type="text" class="form-control" placeholder="Artist Name">
+                      <input name="artist" type="text" class="form-control" placeholder="Artist Name" required="">
                     </div>
                   </div>
                   <div class="form-group">
                     <div class="col-sm-12">
-                      <input name="album" type="text" class="form-control" placeholder="Album Name">
+                      <input name="album" type="text" class="form-control" placeholder="Album Name" required="">
                     </div>
                   </div>
                   <div class="form-group">
                     <div class="col-sm-12">
-                      <input name="duration" type="text" class="form-control" placeholder="Duration">
+                      <input name="duration" type="text" class="form-control" placeholder="Duration" required="">
                     </div>
                   </div>
                   <div class="form-group">
-                    <div class="col-sm-12">
-                      <input id="urlFile" name="fileName" type="file" class="form-control">
+                    <div class="col-sm-4">
+                      <label for="urlFile" class="form-control">Select Song</label>
+                    </div>
+                    <div class="col-sm-8">
+                      <input id="urlFile" name="fileName" type="file" class="form-control" required="">
                     </div>
                   </div>
+
                   <div class="form-group">
-                    <div class="col-sm-12">
-                      <input name="albumArt" type="text" class="form-control" placeholder="Album Art Url">
+                    <div class="col-sm-4">
+                      <label for="albumFile" class="form-control">Select Album Art</label>
+                    </div>
+                    <div class="col-sm-8">
+                      <input id="albumFile" name="albumArt" type="file" class="form-control" required="">
                     </div>
                   </div>
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary">Add Song</button>
                 </form>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="submit" form="addSong" class="btn btn-primary" value="Save Changes">Save Changes</button>
               </div>
             </div>
           </div>

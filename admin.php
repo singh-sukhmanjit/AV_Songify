@@ -18,8 +18,8 @@
         $artist = $_POST["artist"];
         $album = $_POST["album"];
         $duration = $_POST["duration"];
-        $songUrl = $_POST["songUrl"];
-        $albumArt = $_POST["albumArt"];
+        $songUrl = 'songs/'.$_POST["songUrl"];
+        $albumArt = 'img/'.$_POST["albumArt"];
         $query=$conn->query("INSERT INTO `featsong` (`name`,`artist`,`album`,`duration`,`fileName`,`albumArt`) VALUES ('$name','$artist','$album','$duration','$songUrl','$albumArt')");
         if($query)
       	{
@@ -37,17 +37,17 @@
 
       <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
         <label>Song Name</label>
-        <input type="text" name="songName"><br>
+        <input type="text" name="songName" required=""><br>
         <label>Artist</label>
-        <input type="text" name="artist"><br>
+        <input type="text" name="artist" required=""><br>
         <label>Album Name</label>
-        <input type="text" name="album"><br>
+        <input type="text" name="album" required=""><br>
         <label>Duration</label>
-        <input type="text" name="duration"><br>
+        <input type="text" name="duration" required=""><br>
         <label>Song Url</label>
-        <input type="text" name="songUrl"><br>
+        <input type="file" name="songUrl" required=""><br>
         <label>Album Art</label>
-        <input type="text" name="albumArt"><br>
+        <input type="file" name="albumArt" required=""><br>
         <input type="submit" value="Submit">
       </form>
 
