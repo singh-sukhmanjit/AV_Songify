@@ -14,10 +14,49 @@
   </head>
 
   <body>
+    <?php
+      session_start();
+      $host="localhost";
+      $user="root";
+      $pass="password";
+      $db="songify";
+      $conn=mysqli_connect($host,$user,$pass,$db);
+      if ($_SERVER["REQUEST_METHOD"] == "POST")
+      {
+      	$email=$_REQUEST["email"];
+      	$password=$_REQUEST["password"];
+      	$query=$conn->query("SELECT * FROM `users` WHERE `email`='$email' && `password`='$password'");
+      	$fetch=mysqli_fetch_assoc($query);
+        if($fetch)
+      	{
+
+      		$_SESSION['loginid']=$email;
+          $_SESSION['fname']=$fetch["fname"];
+          $_SESSION['lname']=$fetch["lname"];
+      		header("location:index.php");
+      	}
+      	else
+      	{
+      		echo "<script>
+      			alert('Wrong id and password');
+
+      		</script>";
+      	}
+
+      }
+    ?>
+
+    <?php
+      if ( !empty($_SESSION['loginid']))
+      {
+        header("location:index.php");
+      }
+    ?>
+
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12" id="mainHeader">
-          <h3>Spotify</h3>
+          <h3>Songify</h3>
         </div>
       </div>
 
@@ -36,14 +75,7 @@
               </div>
             </div>
             <div class="form-group">
-              <div class="col-sm-6">
-                <div class="checkbox">
-                  <label id="check">
-                    <input type="checkbox" id="check"> Remember me
-                  </label>
-                </div>
-              </div>
-              <div class="col-sm-6">
+              <div class="col-sm-6 col-sm-offset-3">
                 <button type="submit" class="btn btn-success">Sign in</button>
               </div>
             </div>

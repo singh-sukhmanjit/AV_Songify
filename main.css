@@ -99,6 +99,29 @@ h1 {
     display: flex;
 }
 
+#bgColors{
+  margin-left: 80px;
+}
+
+.theme{
+  height: 30px;
+  width: 30px;
+  background: red;
+  display: inline-block;
+}
+
+.theme1{
+  background: #1E466E;
+}
+
+.theme2{
+  background: #5D4123;
+}
+
+.theme3{
+  background: #278B19;
+}
+
 .welcome-screen {
     height: 100%;
     width: 100%;
@@ -146,9 +169,10 @@ h1 {
 }
 
 #songList li:nth-child(6){
-  position: absolute;
-  bottom: 0;
+  margin-top: 280px;
+  cursor: default;
 }
+
 
 .header{
   margin-top: 20px;
@@ -346,7 +370,11 @@ h1 {
 
 .featCard{
   display: inline-block;
-  margin-right: 15px;
+  margin-right: 10px;
+}
+
+.featCard img{
+  margin-top: 10px;
 }
 
 .featCard div{

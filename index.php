@@ -42,6 +42,14 @@
 
   ?>
 
+  <?php
+    session_start();
+    if ( empty($_SESSION['loginid']))
+    {
+      header("location:login.php");
+    }
+  ?>
+
 
     <div class="wrapper">
         <section class="welcome-screen hidden">
@@ -64,7 +72,12 @@
                 <li id="songList1">Home</li>
                 <li id="songList2">Your Music</li>
                 <li><a data-toggle="modal" data-target="#myModal">Add Songs</a></li>
-                <li><hr>Sukhman Sandhu</li>
+                <li><hr>
+                  <?php
+                    echo $_SESSION['fname'].' '.$_SESSION['lname'];
+                  ?>
+                </li>
+                <li><a href="logout.php">Log Out</a></li>
             </ul>
         </div>
         <!-- Button trigger modal -->
@@ -126,7 +139,13 @@
         </div>
         <div class="main">
           <div class="header">
-            <h2>Featured</h2><hr>
+            <h2>Featured
+              <span id="bgColors">
+              <div class="theme1 theme"></div>
+              <div class="theme2 theme"></div>
+              <div class="theme3 theme"></div>
+            </span></h2><hr>
+
             <div class="featWrapper">
 
             </div>

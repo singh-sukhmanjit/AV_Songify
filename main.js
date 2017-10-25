@@ -40,6 +40,18 @@ var songListAjax = function(){
 
 var init = function(){
 
+  $('.theme1').on('click',function(){
+    $('.wrapper').css("background","linear-gradient(rgb(33, 76, 120), rgb(3, 7, 12) 85%)");
+  });
+
+  $('.theme2').on('click',function(){
+    $('.wrapper').css("background","linear-gradient(rgb(110, 77, 42), rgb(11, 7, 4) 85%)");
+  });
+
+  $('.theme3').on('click',function(){
+    $('.wrapper').css("background","linear-gradient(rgb(42, 153, 26), rgb(3, 7, 12) 85%)");
+  })
+
   var fx = setInterval(function(){
     var z = $('#urlFile')[0].files[0].name;
     console.log(z);
@@ -178,54 +190,6 @@ var init = function(){
 
   })
 
-  //Array of songs of Dil playlist
-  // var userSongs=[
-  //     {
-  //         'name': 'FADED',
-  //         'artist': 'ALAN WALKER',
-  //         'album': 'Single',
-  //         'duration': '3:32',
-  //         'fileName': 'http://www.songlover.club/download2.php?filep=glory-data/downloadfile/41905/Faded_(Alan_Walker)(www.englishsong.in).mp3',
-  //         'albumArt': 'http://artimg.songfacts.com/5880fe1b7d051517ce6fd95ffe2caa67-lg.png',
-  //         'songNumber': 1
-  //     },
-  //     {
-  //         'name': 'Kya Hua Tera Wada',
-  //         'artist': 'Mohd Rafi',
-  //         'album': 'Yaadon Ki Baaraat',
-  //         'duration': '4:24',
-  //         'fileName': 'https://dl.jatt.link/cdn1.jatt.link/405c66093a2c6c809ecc82301d7bb017/bzpkv/Kya%20Hua%20Tera%20Wada-(Mr-Jatt.com).mp3',
-  //         'albumArt': 'https://static.jatt.link/thumbs/100_100/oueei.jpg',
-  //         'songNumber': 2
-  //     },
-  //     {
-  //         'name': 'Atrangi Yaari',
-  //         'artist': 'Amitabh Bachchan , Farhan Akhtar',
-  //         'album': 'Wazir',
-  //         'duration': '3:37',
-  //         'fileName': 'https://dl.jatt.link/cdn7.jatt.link/663273022e614292ed96b638ac63bde5/qlvmv/Atrangi%20Yaari-(Mr-Jatt.com).mp3',
-  //         'albumArt': 'https://upload.wikimedia.org/wikipedia/en/thumb/d/db/Wazir_Poster.jpeg/220px-Wazir_Poster.jpeg',
-  //         'songNumber': 3
-  //     },
-  //     {
-  //         'name': 'Mere Mehboob Qayamat Hogi',
-  //         'artist': 'Kishore Kumar',
-  //         'album': 'Mr. X In Bombay',
-  //         'duration': '3:52',
-  //         'fileName': 'https://dl.jatt.link/cdn5.jatt.link/418462d9b466220641dd27a2dfd4cfb4/mscjv/Mere%20Mehboob%20Qayamat%20Hogi-(Mr-Jatt.com).mp3',
-  //         'albumArt': 'http://33.webmusic.pw/33l7F/music/hindi/movies/1964/m/mr_x_in_bombay/img.jpg',
-  //         'songNumber': 4
-  //     },
-  //     {
-  //         'name': 'Atrangi Yaari',
-  //         'artist': 'Amitabh Bachchan , Farhan Akhtar',
-  //         'album': 'Wazir',
-  //         'duration': '3:37',
-  //         'fileName': 'https://dl.jatt.link/cdn7.jatt.link/663273022e614292ed96b638ac63bde5/qlvmv/Atrangi%20Yaari-(Mr-Jatt.com).mp3',
-  //         'albumArt': 'https://upload.wikimedia.org/wikipedia/en/thumb/d/db/Wazir_Poster.jpeg/220px-Wazir_Poster.jpeg',
-  //         'songNumber': 5
-  //     }
-  // ]
 
   var playList_name=[featSongs, userSongs] //variable contains list of all playlists
   var currentPlayList=playList_name[0];   //initially first playlist is selected

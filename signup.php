@@ -31,7 +31,7 @@
         $query=$conn->query("INSERT INTO `users` (`fname`,`lname`,`email`,`password`) VALUES ('$fname','$lname','$email','$password')");
         if($query)
       	{
-      		header("location:index.html");
+      		header("location:login.php");
       	}
       	else
       	{
@@ -45,7 +45,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12" id="mainHeader">
-          <h3>Spotify</h3>
+          <h3>Songify</h3>
         </div>
       </div>
 
